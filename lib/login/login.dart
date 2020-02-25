@@ -19,8 +19,8 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   var email;
   var password;
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
-  _showMsg(msg) {
+  /*final _scaffoldKey = GlobalKey<ScaffoldState>();
+ _showMsg(msg) {
     final snackBar = SnackBar(
       content: Text(msg),
       action: SnackBarAction(
@@ -31,12 +31,12 @@ class _LoginState extends State<Login> {
       ),
     );
     _scaffoldKey.currentState.showSnackBar(snackBar);
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
     return Scaffold(
-      key: _scaffoldKey,
+     // key: _scaffoldKey,
       body: Container(
           color: Colors.teal,
           child: Stack(
@@ -136,9 +136,9 @@ class _LoginState extends State<Login> {
                                         borderRadius:
                                         new BorderRadius.circular(20.0)),
                                     onPressed: () {
-                                      if (_formKey.currentState.validate()) {
-                                        _login();
-                                      }
+                                     // if (_formKey.currentState.validate()) {
+                                       // _login();
+                                     // }
                                     },
                                   ),
                                 ),
@@ -177,7 +177,7 @@ class _LoginState extends State<Login> {
         ),
     );
   }
-  void _login() async{
+  /*void _login() async{
     setState(() {
       _isLoading = true;
     });
@@ -206,5 +206,5 @@ class _LoginState extends State<Login> {
       _isLoading = false;
     });
 
-  }
+  }*/
 }

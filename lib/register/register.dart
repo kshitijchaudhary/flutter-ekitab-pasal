@@ -253,20 +253,20 @@ Widget build(BuildContext context){
     setState(() {
       _isLoading = true;
     });
-    var data = {
+   /* var data = {
       'name': name,
       'email' : email,
       'password': password,
       'phone': phone,
       'address': address
-    };
+    };*/
 
-    var res = await Network().authData(data, '/register');
+    /*var res = await Network().authData(data, '/register');
     var body = json.decode(res.body);
     if(body['success']){
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('token', json.encode(body['token']));
-      localStorage.setString('user', json.encode(body['user']));
+      localStorage.setString('user', json.encode(body['user']));*/
       Navigator.push(
         context,
         new MaterialPageRoute(
@@ -275,8 +275,8 @@ Widget build(BuildContext context){
       );
     }
 
-    setState(() {
-      _isLoading = false;
-    });
+ //   setState(() {
+   //   _isLoading = false;
+    //});
   }
-}
+//}
