@@ -1,10 +1,10 @@
 # ekitaab_pasal
 
-A new Flutter project.
+My Final Year Project 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is of book rental system which allows for rental and hiring of books.
 
 A few resources to get you started if this is your first Flutter project:
 
