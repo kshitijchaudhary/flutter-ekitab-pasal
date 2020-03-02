@@ -9,17 +9,18 @@ class DrawerItem {
   IconData icon;
   DrawerItem(this.title, this.icon);
 }
+String selectedCategorie="Drama";
 class Home extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("Home", Icons.home),
-    new DrawerItem("About Us", Icons.supervisor_account),
-    new DrawerItem("Our Mission", Icons.my_location),
-    new DrawerItem("Our Vision", Icons.wb_sunny),
+    new DrawerItem("Notifications", Icons.notifications),
+    new DrawerItem("Profile", Icons.person),
+    new DrawerItem("Contact Us", Icons.contact_mail),
     // new DrawerItem("Setting", Icons.settings),
-    new DrawerItem("Contact us", Icons.contacts),
-    new DrawerItem("Rate Us", Icons.thumb_up),
-    new DrawerItem("Privacy Policy", Icons.verified_user),
-    new DrawerItem("About App", Icons.touch_app),
+    new DrawerItem("FAQs", Icons.question_answer),
+    new DrawerItem("About App", Icons.library_books),
+    new DrawerItem("Log Out", Icons.close),
+    
     
   ];
 
@@ -189,8 +190,11 @@ void _onItemTapped(int index) {
       onTap: _onItemTapped,
     ),
 
+    
     //  body: _setDrawerItemWidget(_selectedIndex)
     );
+
+    
 
 
   }
