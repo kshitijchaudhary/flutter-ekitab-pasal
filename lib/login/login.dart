@@ -269,7 +269,9 @@ class _LoginState extends State<Login> {
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomPadding: false,
      // key: _scaffoldKey,
-      body: Column(
+      body: SingleChildScrollView(
+        
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
@@ -300,9 +302,11 @@ class _LoginState extends State<Login> {
           SizedBox(height: 48),
           Container(
             margin: EdgeInsets.only(left: 32),
-            child: Row(
+            child: Column(
               children: <Widget>[
-                Text(
+              //  mainAxisAlignment:MainAxisAlignment.center
+                Center(
+                 child:Text(
                   'Login',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -310,7 +314,10 @@ class _LoginState extends State<Login> {
                     fontWeight: FontWeight.w500,
                     color: Theme.of(context).textTheme.title.color,
                   ),
-                )
+                )            
+                ),
+
+               
               ],
             ),
           ),
@@ -465,6 +472,7 @@ class _LoginState extends State<Login> {
         ),
         ],
         ),
+      ),
         );
   }
   /*void _login() async{
