@@ -219,17 +219,18 @@
 // }
 
 //new
-import 'package:flutter/scheduler.dart' show timeDilation;
+//import 'package:flutter/scheduler.dart' show timeDilation;
 //import 'constants.dart';
 
 import 'dart:convert';
+//import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:ekitaab_pasal/register/register.dart';
-import 'package:ekitaab_pasal/screens/home.dart';
+//import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:ekitaab_pasal/network_utils/api.dart';
+//import 'package:ekitaab_pasal/network_utils/api.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 //import 'package:ekitaab_pasal/login/login_button.dart';
 
@@ -259,6 +260,10 @@ class _LoginState extends State<Login> {
   }*/
   @override
   Widget build(BuildContext context) {
+// ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
+//     ScreenUtil.instance =
+//         ScreenUtil(width: 800, height: 1334, allowFontScaling: true);
+
 
     //  final inputBorder = BorderRadius.vertical(
     //   bottom: Radius.circular(10.0),
@@ -276,15 +281,15 @@ class _LoginState extends State<Login> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(left: 80, top: 48),
+            //margin: EdgeInsets.only(left: 40, top: 30),
             height: 50,
             child: Row(
               children: <Widget>[
                 Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Image.asset("assets/logo.png", 
-                 width: 100,
-                 height: 200,
+                 width: 300,
+                 height: 400,
                 fit:BoxFit.fill
                 ),
                 

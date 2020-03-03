@@ -99,19 +99,19 @@ void _onItemTapped(int index) {
             new ListTile(
               leading: new Icon(
                   d.icon,
-                  color: Colors.deepPurple
+                  color: Colors.black
               ),
               title: new Text(
                   d.title,
                   style: new TextStyle(
-                      color: Colors.deepPurple,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold
                   )),
               selected: i == _selectedIndex,
               onTap: () => _onSelectItem(i),
             ),
             new Divider(
-              color: Colors.deepPurple,
+              color: Colors.white,
               height: 2.0,
             )
           ],
@@ -135,6 +135,7 @@ void _onItemTapped(int index) {
 
             Container(
 
+
             ),
         ],
         ),
@@ -149,19 +150,20 @@ void _onItemTapped(int index) {
     
       
       drawer: new Drawer(
+        child: Container(
+        color:Colors.greenAccent,
         child: new ListView(
           children: <Widget>[
+            
             new UserAccountsDrawerHeader(
-                accountName: new Text("UserName"),
-                accountEmail: new Text("name@example.com"),
               
-
-                
+                accountName: new Text("UserName"),
+                accountEmail: new Text("name@example.com"),                             
                 // phoneNumber: new Text("00000000"),
 
                 currentAccountPicture: new CircleAvatar(
                   maxRadius: 50.0,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.red,
                   // borderRadius: BorderRadius.all(Radius.circular(50.0)),
                   child: new Text("U"),
                   /*child: new Center(
@@ -173,18 +175,34 @@ void _onItemTapped(int index) {
                   ),
                   )*/
                  // backgroundImage: new Image.network(src),
-                ),
-
+                ),     
+                decoration: BoxDecoration(
+                  color:Colors.white
+                  ),           
             ),
             new Column(
+              
               children: drawerOptions
             ),
              ],
         ),
       ),
-
+      ),
+        
+   bottomNavigationBar: new Theme(
+    data: Theme.of(context).copyWith(
+        // sets the background color of the `BottomNavigationBar`
+        canvasColor: Colors.black,
+        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        primaryColor: Colors.white,
+        
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
    
-      bottomNavigationBar: BottomNavigationBar(
+      child: new BottomNavigationBar(
+        
           type: BottomNavigationBarType.fixed,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -215,6 +233,7 @@ void _onItemTapped(int index) {
 
     
     //  body: _setDrawerItemWidget(_selectedIndex)
+   ),
     );
 
     
