@@ -22,17 +22,66 @@ bool _isLoading = false;
   var password;
 @override
 Widget build(BuildContext context){
-  return Material(
-    child:Container(
+  return Scaffold(
+    backgroundColor: Colors.teal,
+      resizeToAvoidBottomPadding: false,
+      body: SingleChildScrollView(
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+    Container(
+      margin: EdgeInsets.only(left: 80, top: 48),
+            height: 50,
         color: Colors.teal,
         child: Stack(
           children: <Widget>[
+             Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Image.asset("assets/logo.png", 
+                 width: 100,
+                 height: 80,
+                fit:BoxFit.fill
+                ),
+                
+              ),
+                ],
+            ),
+    ),
+     SizedBox(height: 48),
+     Container(
+            margin: EdgeInsets.only(left: 32),
+            child: Column(
+              children: <Widget>[
+              //  mainAxisAlignment:MainAxisAlignment.center
+                Center(
+                 child:Text(
+                  'Register',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 32,
+                    
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    //color: Theme.of(context).textTheme.title.color,
+                  ),
+                )            
+                ),
+
+               
+              ],
+            ),
+          ),
+          SizedBox(height: 8),
+      
     // appBar: AppBar(
     //   title: Text('Register' ),
     //   centerTitle: true,
     //   backgroundColor: Colors.deepOrange,
       
     // ), children: <Widget>[
+      Container(
+      child: Stack(
+            children: <Widget>[
             Positioned(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -243,8 +292,12 @@ Widget build(BuildContext context){
                   ],
                 ),
               ),
-            )
+            ),
+            ],
+      ),
+      ),
           ],
+      
         ),
       ),
     );

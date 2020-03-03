@@ -9,7 +9,7 @@ class DrawerItem {
   IconData icon;
   DrawerItem(this.title, this.icon);
 }
-String selectedCategorie="Drama";
+String selectedCategorie="All";
 class Home extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("Home", Icons.home),
@@ -38,6 +38,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home>{
+  List<String> categories = ["All","Recommended","Popular books","My books"];
   int _selectedIndex = 0;
   @override
   void initState(){
@@ -84,7 +85,7 @@ void _onItemTapped(int index) {
         name = user['name'];
       });
     }
-  }*/
+  }*/ //child:_widgetOptions.elementAt(__selectedIndex,
     @override
     Widget build(BuildContext context) {
 
@@ -94,6 +95,7 @@ void _onItemTapped(int index) {
       drawerOptions.add(
         new Column(
           children: <Widget>[
+            
             new ListTile(
               leading: new Icon(
                   d.icon,
@@ -113,6 +115,7 @@ void _onItemTapped(int index) {
               height: 2.0,
             )
           ],
+          
         )
       );
     }
@@ -120,10 +123,30 @@ void _onItemTapped(int index) {
       appBar: new AppBar(
         title: new Text(widget.drawerItems[_selectedIndex].title),
         elevation: defaultTargetPlatform== TargetPlatform.android?5.0:0.0,
+        backgroundColor: Colors.green,
+       
       ),
-      body: Center(
-      child: _widgetOptions.elementAt(__selectedIndex),
-    ),
+      body: SingleChildScrollView(
+  
+        child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+          SizedBox(height: 70,),
+
+            Container(
+
+            ),
+        ],
+        ),
+       
+        
+        ),
+        
+        
+        
+        
+      
+    
       
       drawer: new Drawer(
         child: new ListView(

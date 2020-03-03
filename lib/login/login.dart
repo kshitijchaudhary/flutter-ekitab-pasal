@@ -266,7 +266,8 @@ class _LoginState extends State<Login> {
     // );
     // Build a Form widget using the _formKey created above.
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      //backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Colors.teal,
       resizeToAvoidBottomPadding: false,
      // key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -311,8 +312,10 @@ class _LoginState extends State<Login> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 32,
+                    
                     fontWeight: FontWeight.w500,
-                    color: Theme.of(context).textTheme.title.color,
+                    color: Colors.white,
+                    //color: Theme.of(context).textTheme.title.color,
                   ),
                 )            
                 ),
@@ -328,7 +331,7 @@ class _LoginState extends State<Login> {
       Container(
           
           
-          color: Colors.teal,
+         // color: Colors.teal,
           child: Stack(
             children: <Widget>[
               Positioned(
@@ -341,8 +344,8 @@ class _LoginState extends State<Login> {
                         elevation: 4.0,
                         color: Colors.white,
                         margin: EdgeInsets.only(left: 20, right: 20),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
+                         shape: RoundedRectangleBorder(
+                             borderRadius: BorderRadius.circular(5)),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Form(
