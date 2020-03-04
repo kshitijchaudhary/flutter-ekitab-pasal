@@ -1,19 +1,19 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:ekitaab_pasal/login/login.dart';
-import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mdi/mdi.dart';
 
+import 'package:flutter/material.dart';
+import 'package:ekitaab_pasal/login/login.dart';
+import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class DrawerItem {
   String title;
   IconData icon;
   DrawerItem(this.title, this.icon);
 }
-String selectedCategorie="All";
-class Home extends StatefulWidget {
+//String selectedCategorie="All";
+class UpdateProfile extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("Home", Icons.home),
     new DrawerItem("Notifications", Icons.notifications),
@@ -37,11 +37,11 @@ class Home extends StatefulWidget {
 
  
   @override
-  _HomeState createState() => _HomeState();
+  _UpdateProfileState createState() => _UpdateProfileState();
 }
 
-class _HomeState extends State<Home>{
-  List<String> categories = ["All","Recommended","Popular books","My books"];
+class _UpdateProfileState extends State<UpdateProfile>{
+ // List<String> categories = ["All","Recommended","Popular books","My books"];
   int _selectedIndex = 0;
   @override
   void initState(){
@@ -93,7 +93,7 @@ void _onItemTapped(int index) {
     Widget build(BuildContext context) {
       MediaQueryData media = MediaQuery.of(context);
 
-      final Size screenSize = media.size;
+    final Size screenSize = media.size;
       var drawerOptions = <Widget>[];
     for (var i = 0; i < widget.drawerItems.length; i++) {
       var d = widget.drawerItems[i];
@@ -125,7 +125,8 @@ void _onItemTapped(int index) {
         )
       );
     }
-      Widget image_slider_carousel = Container(
+
+    Widget image_slider_carousel = Container(
       height: 250,
       child: new Carousel(
         boxFit: BoxFit.fill,
@@ -137,12 +138,12 @@ void _onItemTapped(int index) {
         ],
       ),
     );
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.drawerItems[_selectedIndex].title),
         actions: <Widget>[
           new IconButton(icon: Icon(Icons.notifications, color: Colors.white), onPressed: null),
-          
         ],
         elevation: defaultTargetPlatform== TargetPlatform.android?5.0:0.0,
         backgroundColor: Colors.green,
@@ -195,9 +196,54 @@ void _onItemTapped(int index) {
         ),
       ),
       ),
+        
+   bottomNavigationBar: new Theme(
+    data: Theme.of(context).copyWith(
+        // sets the background color of the `BottomNavigationBar`
+        canvasColor: Colors.black,
+        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        primaryColor: Colors.white,
+        
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
+   
+      child: new BottomNavigationBar(
+        
+          type: BottomNavigationBarType.fixed,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text('Home'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.library_books),
+          title: Text('Your Books'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_basket),
+          title: Text('Cart'),
+        ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.attach_money),
+           title: Text('Transactions'),
+         ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.person_outline),
+           title: Text('Profile'),
+         ),
+      ],
+      currentIndex: __selectedIndex,
+      selectedItemColor: Colors.greenAccent[800],
+      onTap: _onItemTapped,
+    ),
 
+    
+    //  body: _setDrawerItemWidget(_selectedIndex)
+   ),
 
-        body: new GestureDetector(
+    body:new GestureDetector(
         onTap: () {
         // call this method here to hide soft keyboard
         FocusScope.of(context).requestFocus(new FocusNode());
@@ -318,54 +364,6 @@ void _onItemTapped(int index) {
         ),
       ),
       ),
-
-
-        
-   bottomNavigationBar: new Theme(
-    data: Theme.of(context).copyWith(
-        // sets the background color of the `BottomNavigationBar`
-        canvasColor: Colors.black,
-        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-        primaryColor: Colors.white,
-        
-        textTheme: Theme
-            .of(context)
-            .textTheme
-            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
-   
-      child: new BottomNavigationBar(
-        
-          type: BottomNavigationBarType.fixed,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          title: Text('Your Books'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_basket),
-          title: Text('Cart'),
-        ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.attach_money),
-           title: Text('Transactions'),
-         ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.person_outline),
-           title: Text('Profile'),
-         ),
-      ],
-      currentIndex: __selectedIndex,
-      selectedItemColor: Colors.greenAccent[800],
-      onTap: _onItemTapped,
-    ),
-
-    
-    //  body: _setDrawerItemWidget(_selectedIndex)
-   ),
     );
 
     
