@@ -272,7 +272,7 @@ class _LoginState extends State<Login> {
     // Build a Form widget using the _formKey created above.
     return Scaffold(
       //backgroundColor: Theme.of(context).backgroundColor,
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.grey,
       resizeToAvoidBottomPadding: false,
      // key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -280,17 +280,55 @@ class _LoginState extends State<Login> {
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+         
+          SizedBox(height: 48),
           Container(
+            margin: EdgeInsets.all(5),
+            child: Column(
+              children: <Widget>[
+               //mainAxisAlignment:MainAxisAlignment.center,
+
+                Center(
+                 child:RichText(
+                   text:TextSpan(
+                     style:DefaultTextStyle.of(context).style,
+                     children:<TextSpan>[
+                       TextSpan(text:'Welcome to ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal)),
+                       TextSpan(text:'E-Kitab ',style: TextStyle(color:Colors.red,fontSize:30.0,fontWeight:FontWeight.bold)),
+                       TextSpan(text:'Pasal ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal)),
+                       
+                     ],
+                     
+                   ),
+                  // 'Log In',
+                  // textAlign: TextAlign.center,
+                  // style: TextStyle(
+                  //   fontSize: 32,
+                    
+                  //   fontWeight: FontWeight.w500,
+                  //   color: Colors.white,
+                  //   //color: Theme.of(context).textTheme.title.color,
+                  // ),
+                ),         
+                ),
+
+               
+              ],
+            ),
+          ),
+          SizedBox(height: 8),
+           Container(
             //margin: EdgeInsets.only(left: 40, top: 30),
-            height: 50,
-            child: Row(
+            //height: 50,
+            alignment: Alignment.topCenter,
+            child: Column(
               children: <Widget>[
                 Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Image.asset("assets/logo.png", 
-                 width: 300,
-                 height: 400,
-                fit:BoxFit.fill
+                 width: 150,
+                 height: 150,
+                //fit:BoxFit.fill
                 ),
                 
               ),
@@ -303,33 +341,8 @@ class _LoginState extends State<Login> {
                  // onTap: widget.onTapLogo,
                 //),
               ],
-            ),
+           ),
           ),
-          SizedBox(height: 48),
-          Container(
-            margin: EdgeInsets.only(left: 32),
-            child: Column(
-              children: <Widget>[
-              //  mainAxisAlignment:MainAxisAlignment.center
-                Center(
-                 child:Text(
-                  'Login',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 32,
-                    
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    //color: Theme.of(context).textTheme.title.color,
-                  ),
-                )            
-                ),
-
-               
-              ],
-            ),
-          ),
-          SizedBox(height: 8),
       
       
       
@@ -341,12 +354,12 @@ class _LoginState extends State<Login> {
             children: <Widget>[
               Positioned(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Card(
-                        elevation: 4.0,
+                        elevation: 30.0,
                         color: Colors.white,
                         margin: EdgeInsets.only(left: 20, right: 20),
                          shape: RoundedRectangleBorder(
@@ -358,6 +371,21 @@ class _LoginState extends State<Login> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
+                                Center(
+                                  child: Text(
+                                    'Log In',
+                                   textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.teal,
+                                      //color: Theme.of(context).textTheme.title.color,
+                                    ),
+                                  ),
+
+                                ),
+
                                 Padding(padding: EdgeInsets.only(top:20.0)),                              
                                 TextFormField(
                                   style: TextStyle(color: Color(0xFF000000)),
@@ -405,71 +433,116 @@ class _LoginState extends State<Login> {
                                   ),
                                   validator: (passwordValue) {
                                     if (passwordValue.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
+                                      return 'Password field cannot be empty';
+                                    } else if (passwordValue.length < 6) {
+                                    return "the password has to be at least 6 characters long";
+                                  }
                                     password = passwordValue;
                                     return null;
                                   },
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: new Column(children: <Widget>[
-                                     FlatButton(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 8, bottom: 8, left: 10, right: 10),
-                                      child: Text(
-                                        _isLoading? 'Proccessing...' : 'Login',
-                                        textDirection: TextDirection.ltr,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.0,
-                                          decoration: TextDecoration.none,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                      ),
-                                    ),
+
+                                //   padding: const EdgeInsets.all(10.0),
+                                //   child: new Column(children: <Widget>[
+                                //      FlatButton(
+                                //     child: Padding(
+                                //       padding: EdgeInsets.only(
+                                //           top: 8, bottom: 8, left: 10, right: 10),
+                                //       child: Text(
+                                //         _isLoading? 'Proccessing...' : 'Login',
+                                //         textDirection: TextDirection.ltr,
+                                //         style: TextStyle(
+                                //           color: Colors.white,
+                                //           fontSize: 15.0,
+                                //           decoration: TextDecoration.none,
+                                //           fontWeight: FontWeight.normal,
+                                //         ),
+                                //       ),
+                                //     ),
                                     
-                                    color: Colors.teal,
-                                    disabledColor: Colors.grey,
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                        new BorderRadius.circular(20.0)),
-                                    onPressed: () {
-                                     // if (_formKey.currentState.validate()) {
-                                       // _login();
-                                     // }
-                                    },
-                                     ),
+                                //     color: Colors.teal,
+                                //     disabledColor: Colors.grey,
+                                //     shape: new RoundedRectangleBorder(
+                                //         borderRadius:
+                                //         new BorderRadius.circular(20.0)),
+                                //     onPressed: () {
+                                //      // if (_formKey.currentState.validate()) {
+                                //        // _login();
+                                //      // }
+                                //     },
+                                //      ),
                                 
-                                  ],
-                                  )
+                                //   ],
+                                //   )
+                                // ),
+                              padding:
+                              const EdgeInsets.fromLTRB(16.0, 8.0, 14.0, 8.0),
+                          child: Material(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.teal,
+                              elevation: 0.0,
+                              child: MaterialButton(
+                                onPressed: () {},
+                                minWidth: 150,
+                                //minWidth: MediaQuery.of(context).size.width,
+                                child: Text(
+                                  "Login",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
                                 ),
+                              )),
+                        ),
+                          Padding(
+                          padding: const EdgeInsets.only(top:23, bottom: 30,right:10,left: 175),
+                          child: Text(
+                            "Forgot password?",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
                               ],
                             ),
                           ),
                         ),
+                        
                       ),
-
+                    
                       Padding(
-                        padding: const EdgeInsets.only(top: 20),
-                        child: InkWell(
-                          onTap: () {
+
+                        padding:
+                        const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
+                        child: Material(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.teal,
+                              elevation: 0.0,
+                        child: MaterialButton(
+                          onPressed: () {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
                                     builder: (context) => FirstRegister()));
                           },
+                          //minWidth: MediaQuery.of(context).size.width,
+                          minWidth: 150,
                           child: Text(
-                            'Create new Account',
+                            'Register Now',
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 15.0,
+                              fontSize: 20.0,
                               decoration: TextDecoration.none,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
+                      ),
                       ),
                     ],
                   ),

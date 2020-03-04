@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:ekitaab_pasal/login/login.dart';
-import 'package:ekitaab_pasal/network_utils/api.dart';
+//import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 
 class FirstRegister extends StatefulWidget{
@@ -23,62 +23,92 @@ bool _isLoading = false;
 @override
 Widget build(BuildContext context){
   return Scaffold(
-    backgroundColor: Colors.teal,
+    backgroundColor: Colors.grey,
       resizeToAvoidBottomPadding: false,
       body: SingleChildScrollView(
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-    Container(
-      margin: EdgeInsets.only(left: 80, top: 48),
-            height: 50,
-        color: Colors.teal,
-        child: Stack(
-          children: <Widget>[
-             Padding(
+    // Container(
+    //   margin: EdgeInsets.only(left: 80, top: 48),
+    //         height: 50,
+    //     color: Colors.teal,
+    //     child: Stack(
+    //       children: <Widget>[
+    //          Padding(
+    //             padding: EdgeInsets.all(10.0),
+    //             child: Image.asset("assets/logo.png", 
+    //              width: 100,
+    //              height: 80,
+    //             fit:BoxFit.fill
+    //             ),
+                
+    //           ),
+    //             ],
+    //         ),
+    // ),
+    //  SizedBox(height: 48),
+    //  Container(
+    //         margin: EdgeInsets.only(left: 32),
+    //         child: Column(
+    //           children: <Widget>[
+    //           //  mainAxisAlignment:MainAxisAlignment.center
+    //             Center(
+    //              child:Text(
+    //               'Register',
+    //               textAlign: TextAlign.center,
+    //               style: TextStyle(
+    //                 fontSize: 32,
+                    
+    //                 fontWeight: FontWeight.w500,
+    //                 color: Colors.white,
+    //                 //color: Theme.of(context).textTheme.title.color,
+    //               ),
+    //             )            
+    //             ),
+
+               
+    //           ],
+    //         ),
+    //       ),
+    //       SizedBox(height: 8),
+      
+    // // appBar: AppBar(
+    // //   title: Text('Register' ),
+    // //   centerTitle: true,
+    // //   backgroundColor: Colors.deepOrange,
+      
+    // // ), children: <Widget>[
+          SizedBox(height: 8),
+           Container(
+            //margin: EdgeInsets.only(left: 40, top: 30),
+            //height: 50,
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: <Widget>[
+                Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Image.asset("assets/logo.png", 
-                 width: 100,
-                 height: 80,
-                fit:BoxFit.fill
+                 width: 150,
+                 height: 150,
+                //fit:BoxFit.fill
                 ),
                 
               ),
-                ],
-            ),
-    ),
-     SizedBox(height: 48),
-     Container(
-            margin: EdgeInsets.only(left: 32),
-            child: Column(
-              children: <Widget>[
-              //  mainAxisAlignment:MainAxisAlignment.center
-                Center(
-                 child:Text(
-                  'Register',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 32,
-                    
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    //color: Theme.of(context).textTheme.title.color,
-                  ),
-                )            
-                ),
 
-               
+               // GestureDetector(
+                   //child: Image.asset(
+                     //'lib/assets/logo.jpg',
+                     //fit: BoxFit.fill,
+                   //),
+                 // onTap: widget.onTapLogo,
+                //),
               ],
-            ),
+           ),
           ),
-          SizedBox(height: 8),
       
-    // appBar: AppBar(
-    //   title: Text('Register' ),
-    //   centerTitle: true,
-    //   backgroundColor: Colors.deepOrange,
       
-    // ), children: <Widget>[
+      
       Container(
       child: Stack(
             children: <Widget>[
@@ -101,6 +131,21 @@ Widget build(BuildContext context){
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+
+                               Center(
+                                  child: Text(
+                                    'Account Register',
+                                   textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.teal,
+                                      //color: Theme.of(context).textTheme.title.color,
+                                    ),
+                                  ),
+
+                                ),
 
                               Padding(padding: EdgeInsets.only(top:20.0)),                              
                               TextFormField(
@@ -270,14 +315,20 @@ Widget build(BuildContext context){
                     ),
 
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: InkWell(
-                        onTap: () {
+                     padding:
+                        const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
+                        child: Material(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.teal,
+                              elevation: 0.0,
+                      child: MaterialButton(
+                        onPressed: () {
                           Navigator.push(
                               context,
                               new MaterialPageRoute(
                                   builder: (context) => Login()));
                         },
+                        minWidth: 150,
                         child: Text(
                           'Already Have an Account',
                           style: TextStyle(
@@ -288,6 +339,7 @@ Widget build(BuildContext context){
                           ),
                         ),
                       ),
+                    ),
                     ),
                   ],
                 ),
