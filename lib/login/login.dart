@@ -295,7 +295,7 @@ class _LoginState extends State<Login> {
                      children:<TextSpan>[
                        TextSpan(text:'Welcome to ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal)),
                        TextSpan(text:'E-Kitab ',style: TextStyle(color:Colors.red,fontSize:30.0,fontWeight:FontWeight.bold)),
-                       TextSpan(text:'Pasal ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal)),
+                       TextSpan(text:'Pasal ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal))
                        
                      ],
                      
@@ -497,12 +497,13 @@ class _LoginState extends State<Login> {
                               )),
                         ),
                           Padding(
-                          padding: const EdgeInsets.only(top:23, bottom: 30,right:10,left: 175),
+                          padding: const EdgeInsets.only(top:20, bottom: 5),
                           child: Text(
                             "Forgot password?",
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.right,
                             style: TextStyle(
                               color: Colors.black,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
