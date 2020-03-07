@@ -34,6 +34,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
+  page_transition: ^1.1.4
+  simple_animations: ^1.1.3
+  
 
   flutter_launcher_icons: ^0.7.4
 
