@@ -293,9 +293,12 @@ class _LoginState extends State<Login> {
                    text:TextSpan(
                      style:DefaultTextStyle.of(context).style,
                      children:<TextSpan>[
-                       TextSpan(text:'Welcome to ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal)),
-                       TextSpan(text:'E-Kitab ',style: TextStyle(color:Colors.red,fontSize:30.0,fontWeight:FontWeight.bold)),
-                       TextSpan(text:'Pasal ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal))
+                       TextSpan(text:'Welcome to ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal,
+                       decoration: TextDecoration.none,)),
+                       TextSpan(text:'E-Kitab ',style: TextStyle(color:Colors.red,fontSize:30.0,fontWeight:FontWeight.bold,
+                       decoration: TextDecoration.none)),
+                       TextSpan(text:'Pasal ',style: TextStyle(color:Colors.white,fontSize:20.0,fontWeight:FontWeight.normal,    decoration: TextDecoration.none,
+                       ))
                        
                      ],
                      

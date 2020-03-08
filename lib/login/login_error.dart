@@ -1,14 +1,14 @@
-import 'package:flutter/scheduler.dart' show timeDilation;
+//import 'package:flutter/scheduler.dart' show timeDilation;
 //import 'constants.dart';
 
-import 'dart:convert';
+//import 'dart:convert';
 
 import 'package:ekitaab_pasal/register/register.dart';
-import 'package:ekitaab_pasal/screens/home.dart';
+//import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:ekitaab_pasal/network_utils/api.dart';
+//import 'package:ekitaab_pasal/network_utils/api.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 //import 'package:ekitaab_pasal/login/login_button.dart';
 

@@ -15,7 +15,7 @@ class DrawerItem {
   IconData icon;
   DrawerItem(this.title, this.icon);
 }
-String selectedCategorie="All";
+//String selectedCategorie="All";
 class Home extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("Home", Icons.home),
@@ -44,7 +44,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home>{
-  List<String> categories = ["All","Recommended","Popular books","My books"];
+ // List<String> categories = ["All","Recommended","Popular books","My books"];
   int _selectedIndex = 0;
   @override
   void initState(){
@@ -53,21 +53,22 @@ class _HomeState extends State<Home>{
   }
  int __selectedIndex = 0; 
 static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
 static const List<Widget> _widgetOptions = <Widget>[
   Text(
     'Index 0: Home',
     style: optionStyle,
   ),
   Text(
-     'Index 1: Book',
+     'Index 1: Book Status',
      style: optionStyle,
   ),
   Text(
-     'Index 2: Shopping Cart',
+     'Index 2: Rent Books',
      style: optionStyle,
   ),
   Text(
-     'Index 3: Transactions',
+     'Index 3: History',
      style: optionStyle,
   ),
   Text(
@@ -128,23 +129,23 @@ void _onItemTapped(int index) {
         )
       );
     }
-      Widget image_slider_carousel = Container(
-      height: 250,
-      child: new Carousel(
-        boxFit: BoxFit.fill,
-        images: [
-          new AssetImage("assets/logo.png"),
-          new AssetImage("assets/logo.png"),
-          new AssetImage("assets/logo.png"),
+    //   Widget image_slider_carousel = Container(
+    //   height: 250,
+    //   child: new Carousel(
+    //     boxFit: BoxFit.fill,
+    //     images: [
+    //       new AssetImage("assets/logo.png"),
+    //       new AssetImage("assets/logo.png"),
+    //       new AssetImage("assets/logo.png"),
           
-        ],
-      ),
-    );
+    //     ],
+    //   ),
+    // );
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.drawerItems[_selectedIndex].title),
         actions: <Widget>[
-          new IconButton(icon: Icon(Icons.notifications, color: Colors.white), onPressed: null),
+          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: null),
           
         ],
         elevation: defaultTargetPlatform== TargetPlatform.android?5.0:0.0,
@@ -226,7 +227,7 @@ void _onItemTapped(int index) {
                       children: <Widget>[
                         Expanded(
                           flex:4,
-                          child:FadeAnimation(1.1,Text('Best Online \nBook Rental System',style:TextStyle(
+                          child:FadeAnimation(1.1,Text('Final Year Project \nBook Rental System',style:TextStyle(
                             fontSize:25,
                             fontWeight:FontWeight.bold,
                             color:Color.fromRGBO(97, 90, 90, 1)
@@ -279,7 +280,11 @@ void _onItemTapped(int index) {
                  )),
                  ),
                  Container(
-                   child: Row(
+                   child: new Wrap(
+                    //spacing: 8.0, // gap between adjacent chips
+                   // runSpacing: 4.0,
+                    direction: Axis.horizontal, // main axis (rows or columns)
+
                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: <Widget>[
                        FadeAnimation(1.2,FlatButton(
@@ -393,12 +398,12 @@ void _onItemTapped(int index) {
           title: Text('Your Books'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_basket),
-          title: Text('Cart'),
+          icon: Icon(Icons.add),
+          title: Text('Rent Books'),
         ),
            BottomNavigationBarItem(
-           icon: Icon(Icons.attach_money),
-           title: Text('Transactions'),
+           icon: Icon(Icons.notifications),
+           title: Text('New Info'),
          ),
            BottomNavigationBarItem(
            icon: Icon(Icons.person_outline),
@@ -415,29 +420,29 @@ void _onItemTapped(int index) {
     
     //  body: _setDrawerItemWidget(_selectedIndex)
    ),
-   floatingActionButton: Container(
-        width: 65.0,
-        height: 65.0,
-        decoration: BoxDecoration(
-            color: Color(0xFFfa7b58),
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                  color: Color(0xFFf78a6c).withOpacity(.6),
-                  offset: Offset(0.0, 10.0),
-                  blurRadius: 10.0)
-            ]),
-        child: RawMaterialButton(
-          shape: CircleBorder(),
-          child: Icon(
-            Icons.add,
-            size: 35.0,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+  //  floatingActionButton: Container(
+  //       width: 65.0,
+  //       height: 65.0,
+  //       decoration: BoxDecoration(
+  //           color: Color(0xFFfa7b58),
+  //           shape: BoxShape.circle,
+  //           boxShadow: [
+  //             BoxShadow(
+  //                 color: Color(0xFFf78a6c).withOpacity(.6),
+  //                 offset: Offset(0.0, 10.0),
+  //                 blurRadius: 10.0)
+  //           ]),
+  //       child: RawMaterialButton(
+  //         shape: CircleBorder(),
+  //         child: Icon(
+  //           Icons.add,
+  //           size: 35.0,
+  //           color: Colors.white,
+  //         ),
+  //         onPressed: () {},
+  //       ),
+  //     ),
+  //     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
     }
   
