@@ -1,4 +1,4 @@
-# ekitaab_pasal
+# Ekitab Pasal - Rental Mobile Application
 
 My Final Year Project 
 
