@@ -2,7 +2,6 @@
 import 'package:ekitaab_pasal/login/login.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //import 'package:ekitaab_pasal/register/register.dart';

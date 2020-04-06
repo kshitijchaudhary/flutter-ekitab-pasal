@@ -286,7 +286,7 @@ Widget build(BuildContext context){
                                     padding: EdgeInsets.only(
                                         top: 8, bottom: 8, left: 10, right: 10),
                                     child: Text(
-                                      _isLoading? 'Proccessing...' : 'Register',
+                                      "Register",
                                       textDirection: TextDirection.ltr,
                                       style: TextStyle(
                                         color: Colors.white,

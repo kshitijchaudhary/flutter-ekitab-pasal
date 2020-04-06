@@ -402,6 +402,7 @@ class _LoginState extends State<Login> {
                                     ),
                                     labelText: "Email",
                                     hintText: "Please enter your Email",
+                                    hasFloatingPlaceholder: true,
                                     hintStyle: TextStyle(
                                         color: Color(0xFF9b9b9b),
                                         fontSize: 15,
@@ -414,6 +415,7 @@ class _LoginState extends State<Login> {
                                     email = emailValue;
                                     return null;
                                   },
+                              onSaved: (String val) => email = val,
                                 ),
                                 Padding(padding: EdgeInsets.only(top:20.0)),                              
                                 TextFormField(
@@ -443,6 +445,7 @@ class _LoginState extends State<Login> {
                                     password = passwordValue;
                                     return null;
                                   },
+                                  //onSaved: (String val) => password = val);
                                 ),
                                 Padding(
 
