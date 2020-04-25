@@ -95,6 +95,7 @@ static const List<Widget> _widgetOptions = <Widget>[
   Text(
      'Index 2: Rent Books',
      style: optionStyle,
+     
   ),
   Text(
      'Index 3: History',
@@ -197,8 +198,8 @@ void _onItemTapped(int index) {
             
             new UserAccountsDrawerHeader(
               
-                accountName: new Text("UserName"),
-                accountEmail: new Text("name@example.com"),                             
+                accountName: new Text("Ekitab Pasal"),
+                accountEmail: new Text("info@ekitabpasal.com"),                             
                 // phoneNumber: new Text("00000000"),
 
                 currentAccountPicture: new CircleAvatar(
@@ -443,6 +444,7 @@ void _onItemTapped(int index) {
         BottomNavigationBarItem(
           icon: Icon(Icons.add),
           title: Text('Rent Books'),
+          
         ),
            BottomNavigationBarItem(
            icon: Icon(Icons.notifications),
@@ -463,29 +465,7 @@ void _onItemTapped(int index) {
     
     //  body: _setDrawerItemWidget(_selectedIndex)
    ),
-  //  floatingActionButton: Container(
-  //       width: 65.0,
-  //       height: 65.0,
-  //       decoration: BoxDecoration(
-  //           color: Color(0xFFfa7b58),
-  //           shape: BoxShape.circle,
-  //           boxShadow: [
-  //             BoxShadow(
-  //                 color: Color(0xFFf78a6c).withOpacity(.6),
-  //                 offset: Offset(0.0, 10.0),
-  //                 blurRadius: 10.0)
-  //           ]),
-  //       child: RawMaterialButton(
-  //         shape: CircleBorder(),
-  //         child: Icon(
-  //           Icons.add,
-  //           size: 35.0,
-  //           color: Colors.white,
-  //         ),
-  //         onPressed: () {},
-  //       ),
-  //     ),
-  //     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+  
     );
     }
     
