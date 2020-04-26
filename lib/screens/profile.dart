@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mdi/mdi.dart';
-
+import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:ekitaab_pasal/login/login.dart';
 import 'package:ekitaab_pasal/network_utils/api.dart';
@@ -13,7 +14,7 @@ class DrawerItem {
   DrawerItem(this.title, this.icon);
 }
 //String selectedCategorie="All";
-class UpdateProfile extends StatefulWidget {
+class UserProfile extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("Home", Icons.home),
     new DrawerItem("Notifications", Icons.notifications),
@@ -37,10 +38,10 @@ class UpdateProfile extends StatefulWidget {
 
  
   @override
-  _UpdateProfileState createState() => _UpdateProfileState();
+  _UserProfileState createState() => _UserProfileState();
 }
 
-class _UpdateProfileState extends State<UpdateProfile>{
+class _UserProfileState extends State<UserProfile>{
  // List<String> categories = ["All","Recommended","Popular books","My books"];
   int _selectedIndex = 0;
   @override
@@ -197,51 +198,7 @@ void _onItemTapped(int index) {
       ),
       ),
         
-   bottomNavigationBar: new Theme(
-    data: Theme.of(context).copyWith(
-        // sets the background color of the `BottomNavigationBar`
-        canvasColor: Colors.black,
-        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-        primaryColor: Colors.white,
-        
-        textTheme: Theme
-            .of(context)
-            .textTheme
-            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
-   
-      child: new BottomNavigationBar(
-        
-          type: BottomNavigationBarType.fixed,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          title: Text('Your Books'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_basket),
-          title: Text('Cart'),
-        ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.attach_money),
-           title: Text('Transactions'),
-         ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.person_outline),
-           title: Text('Profile'),
-         ),
-      ],
-      currentIndex: __selectedIndex,
-      selectedItemColor: Colors.greenAccent[800],
-      onTap: _onItemTapped,
-    ),
-
-    
-    //  body: _setDrawerItemWidget(_selectedIndex)
-   ),
+   bottomNavigationBar: MyBottomNavigationBar(),
 
     body:new GestureDetector(
         onTap: () {

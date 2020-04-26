@@ -459,11 +459,7 @@ void _onItemTapped(int index) {
       currentIndex: __selectedIndex,
       selectedItemColor: Colors.greenAccent[800],
       onTap: _onItemTapped,
-    ),
-
-       
-    
-    //  body: _setDrawerItemWidget(_selectedIndex)
+    ),   //  body: _setDrawerItemWidget(_selectedIndex)
    ),
   
     );
