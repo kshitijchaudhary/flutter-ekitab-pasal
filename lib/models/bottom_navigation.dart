@@ -16,7 +16,7 @@ import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
  
  class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
-   int __selectedIndex = 0; 
+   int currentTab = 0; 
  final List<Widget> _children =
  [
    Home(),
@@ -28,7 +28,7 @@ import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
 
    void _onItemTapped(int index) {
   setState(() {
-    __selectedIndex = index;
+    currentTab = index;
   });
 }
 
@@ -37,6 +37,8 @@ import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
    @override
    Widget build(BuildContext context) {
      return new Scaffold(
+
+       body: _children[currentTab],
       bottomNavigationBar: new Theme(
     data: Theme.of(context).copyWith(
         // sets the background color of the `BottomNavigationBar`
@@ -77,7 +79,7 @@ import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
 
          ),
       ],
-      currentIndex: __selectedIndex,
+      currentIndex: currentTab,
       selectedItemColor: Colors.greenAccent[800],
       onTap: _onItemTapped,
     ),   //  body: _setDrawerItemWidget(_selectedIndex)

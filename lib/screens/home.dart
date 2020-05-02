@@ -75,11 +75,11 @@ class _HomeState extends State<Home>{
    //checkCart();
     super.initState();
   }
- int __selectedIndex = 0; 
+ int currentTab = 0; 
 //static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
 
-  final List<Widget> _children =
+  final List<Widget> screens =
  [
    Home(),
    BookStatus(),
@@ -88,11 +88,11 @@ class _HomeState extends State<Home>{
    UserProfile(),
  ];
 
-
+//Active Page Tabs  
 
 void _onItemTapped(int index) {
   setState(() {
-    __selectedIndex = index;
+    currentTab = index;
   });
 }
     @override
@@ -154,12 +154,22 @@ void _onItemTapped(int index) {
         backgroundColor: Colors.green,
        
       ),
+      //screens[currentTab],
+
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+
     bottomNavigationBar: new Theme(
     data: Theme.of(context).copyWith(
         // sets the background color of the `BottomNavigationBar`
         canvasColor: Colors.black,
         // sets the active color of the `BottomNavigationBar` if `Brightness` is light
         primaryColor: Colors.white,
+        
         
         textTheme: Theme
             .of(context)
@@ -169,6 +179,9 @@ void _onItemTapped(int index) {
       child: new BottomNavigationBar(
         
           type: BottomNavigationBarType.fixed,
+          onTap: _onItemTapped,
+          currentIndex: currentTab,
+
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
@@ -193,9 +206,9 @@ void _onItemTapped(int index) {
 
          ),
       ],
-      currentIndex: __selectedIndex,
+      //currentIndex: currentTab,
       selectedItemColor: Colors.greenAccent[800],
-      onTap: _onItemTapped,
+      //onTap: _onItemTapped,
     ),   //  body: _setDrawerItemWidget(_selectedIndex)
    ),
      
@@ -247,7 +260,7 @@ void _onItemTapped(int index) {
       ),
 
 
-        body: SingleChildScrollView(
+         body: SingleChildScrollView(
           child:Column(
             children:<Widget>[
               FadeAnimation(1, Container(
