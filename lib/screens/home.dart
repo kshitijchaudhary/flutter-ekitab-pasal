@@ -20,6 +20,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 
 
 
@@ -75,8 +76,8 @@ class _HomeState extends State<Home>{
    //checkCart();
     super.initState();
   }
- int currentTab = 0; 
-//static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  int currentTab = 0; 
+// //static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
 
   final List<Widget> screens =
@@ -91,10 +92,10 @@ class _HomeState extends State<Home>{
 //Active Page Tabs  
 
 void _onItemTapped(int index) {
-  setState(() {
-    currentTab = index;
-  });
-}
+   setState(() {
+     currentTab = index;
+   });
+ }
     @override
     Widget build(BuildContext context) {
       MediaQueryData media = MediaQuery.of(context);
@@ -143,9 +144,9 @@ void _onItemTapped(int index) {
     //     ],
     //   ),
     // );
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.drawerItems[_selectedIndex].title),
+    return  Scaffold(
+      appBar: AppBar(
+        title: new Text(widget.drawerItems[_selectedIndex].title) ,
         actions: <Widget>[
           new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: null),
           
@@ -154,63 +155,18 @@ void _onItemTapped(int index) {
         backgroundColor: Colors.green,
        
       ),
+      
       //screens[currentTab],
 
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
+        
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
 
-    bottomNavigationBar: new Theme(
-    data: Theme.of(context).copyWith(
-        // sets the background color of the `BottomNavigationBar`
-        canvasColor: Colors.black,
-        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-        primaryColor: Colors.white,
-        
-        
-        textTheme: Theme
-            .of(context)
-            .textTheme
-            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
    
-      child: new BottomNavigationBar(
-        
-          type: BottomNavigationBarType.fixed,
-          onTap: _onItemTapped,
-          currentIndex: currentTab,
-
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          title: Text('Your Books'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.add),
-          title: Text('Rent Books'),
-          
-        ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.notifications),
-           title: Text('New Info'),
-         ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.person_outline),
-           title: Text('Profile'),
-
-         ),
-      ],
-      //currentIndex: currentTab,
-      selectedItemColor: Colors.greenAccent[800],
-      //onTap: _onItemTapped,
-    ),   //  body: _setDrawerItemWidget(_selectedIndex)
-   ),
      
       
         
@@ -223,19 +179,16 @@ void _onItemTapped(int index) {
         child: Container(
         color:Colors.greenAccent,
         child: new ListView(
-          children: <Widget>[
-            
-            new UserAccountsDrawerHeader(
-              
+          children: <Widget>[            
+            new UserAccountsDrawerHeader(              
                 accountName: new Text("Ekitab Pasal"),
                 accountEmail: new Text("info@ekitabpasal.com"),                             
                 // phoneNumber: new Text("00000000"),
-
                 currentAccountPicture: new CircleAvatar(
                   maxRadius: 50.0,
                   backgroundColor: Colors.red,
                   // borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  child: new Text("U"),
+                  child: new Text("E"),
                   /*child: new Center(
                     
                     child: new Image.asset(
@@ -259,8 +212,11 @@ void _onItemTapped(int index) {
       ),
       ),
 
-
-         body: SingleChildScrollView(
+       // bottomNavigationBar: MyBottomNavigationBar(),
+         body:     
+         
+         SingleChildScrollView(
+          
           child:Column(
             children:<Widget>[
               FadeAnimation(1, Container(
@@ -329,6 +285,12 @@ void _onItemTapped(int index) {
            ),
            
            
+          //  Padding(
+          //    padding: EdgeInsets.all(8.0),
+          //    child:screens[currentTab] ,
+          //  ),
+           
+           
                Padding(
              padding: EdgeInsets.all(8.0),
              child: Row(
@@ -371,8 +333,59 @@ void _onItemTapped(int index) {
               
             ],
           ),
-          ),
+          
+      
 
+
+          ),
+ bottomNavigationBar: new Theme(
+    data: Theme.of(context).copyWith(
+        // sets the background color of the `BottomNavigationBar`
+        canvasColor: Colors.black,
+        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        primaryColor: Colors.white,
+        
+        
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
+   
+      child: new BottomNavigationBar(
+        
+          type: BottomNavigationBarType.fixed,
+          // onTap: _onItemTapped,
+          // currentIndex: currentTab,
+
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text('Home'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.library_books),
+          title: Text('Your Books'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+          title: Text('Rent Books'),
+          
+        ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.notifications),
+           title: Text('New Info'),
+         ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.person_outline),
+           title: Text('Profile'),
+
+         ),
+      ],
+      currentIndex: currentTab,
+      selectedItemColor: Colors.greenAccent[800],
+      onTap: _onItemTapped,
+    ),   //  body: _setDrawerItemWidget(_selectedIndex)
+   ),
 
         
    

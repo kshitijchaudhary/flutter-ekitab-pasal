@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'E-Kitab Pasal',
-       debugShowCheckedModeBanner: false,
+       debugShowCheckedModeBanner: true,
        home:CheckAuth(),
 
       theme: ThemeData(
