@@ -1,8 +1,12 @@
 import 'dart:convert';
+import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
 import 'package:ekitaab_pasal/screens/book_details.dart';
 import 'package:ekitaab_pasal/animations/fade_animation.dart';
 import 'package:ekitaab_pasal/login/login.dart';
 import 'package:ekitaab_pasal/network_utils/api.dart';
+import 'package:ekitaab_pasal/screens/book_status.dart';
+import 'package:ekitaab_pasal/screens/cart.dart';
+import 'package:ekitaab_pasal/screens/profile.dart';
 
 import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
@@ -45,7 +49,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home>{
  // List<String> categories = ["All","Recommended","Popular books","My books"];
-    List<Widget> bookShimmer = List();
+    //List<Widget> bookShimmer = List();
     ScrollController _scrollController = ScrollController();
     int currentPage = 1;
     bool isCatLoading = true;
@@ -72,32 +76,19 @@ class _HomeState extends State<Home>{
     super.initState();
   }
  int __selectedIndex = 0; 
-static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+//static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-static const List<Widget> _widgetOptions = <Widget>[
-  Text(
-    'Index 0: Home',
-    style: optionStyle,
-  ),
-  Text(
-     'Index 1: Book Status',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 2: Rent Books',
-     style: optionStyle,
-     
-  ),
-  Text(
-     'Index 3: History',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 4: Profile',
-     style: optionStyle,
-  ),
-  
-];
+
+  final List<Widget> _children =
+ [
+   Home(),
+   BookStatus(),
+   AddBookForm(),
+   Cart(),
+   UserProfile(),
+ ];
+
+
 
 void _onItemTapped(int index) {
   setState(() {
@@ -163,8 +154,52 @@ void _onItemTapped(int index) {
         backgroundColor: Colors.green,
        
       ),
-     
+    bottomNavigationBar: new Theme(
+    data: Theme.of(context).copyWith(
+        // sets the background color of the `BottomNavigationBar`
+        canvasColor: Colors.black,
+        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        primaryColor: Colors.white,
         
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
+   
+      child: new BottomNavigationBar(
+        
+          type: BottomNavigationBarType.fixed,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text('Home'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.library_books),
+          title: Text('Your Books'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+          title: Text('Rent Books'),
+          
+        ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.notifications),
+           title: Text('New Info'),
+         ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.person_outline),
+           title: Text('Profile'),
+
+         ),
+      ],
+      currentIndex: __selectedIndex,
+      selectedItemColor: Colors.greenAccent[800],
+      onTap: _onItemTapped,
+    ),   //  body: _setDrawerItemWidget(_selectedIndex)
+   ),
+     
+      
         
         
         
@@ -327,50 +362,7 @@ void _onItemTapped(int index) {
 
 
         
-   bottomNavigationBar: new Theme(
-    data: Theme.of(context).copyWith(
-        // sets the background color of the `BottomNavigationBar`
-        canvasColor: Colors.black,
-        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-        primaryColor: Colors.white,
-        
-        textTheme: Theme
-            .of(context)
-            .textTheme
-            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
    
-      child: new BottomNavigationBar(
-        
-          type: BottomNavigationBarType.fixed,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          title: Text('Your Books'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.add),
-          title: Text('Rent Books'),
-          
-        ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.notifications),
-           title: Text('New Info'),
-         ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.person_outline),
-           title: Text('Profile'),
-
-         ),
-      ],
-      currentIndex: __selectedIndex,
-      selectedItemColor: Colors.greenAccent[800],
-      onTap: _onItemTapped,
-    ),   //  body: _setDrawerItemWidget(_selectedIndex)
-   ),
   
     );
     }
