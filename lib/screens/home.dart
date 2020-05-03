@@ -314,6 +314,7 @@ void _onItemTapped(int index) {
                                   border: Border.all(color: Color(0xFFFF900F))),
                               child: Padding(
                                 padding: const EdgeInsets.all(3.0),
+                                
                                 child: Icon(Icons.arrow_forward_ios,
                                     ),
                               )),

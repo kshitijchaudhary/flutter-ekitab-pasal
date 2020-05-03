@@ -241,7 +241,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool _isLoading = false;
+ // bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
   var email;
   var password;
