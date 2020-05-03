@@ -42,7 +42,6 @@ class BookNotifier extends ChangeNotifier {
     oldBook.category = newBook.category;
     oldBook.coverUrl = newBook.coverUrl;
     oldBook.description = newBook.description;
-    oldBook.rating = newBook.rating;
     oldBook.title = newBook.title;
 
     final index = books.indexOf(oldBook);

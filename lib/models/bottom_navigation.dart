@@ -8,6 +8,10 @@ import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
 
  
  class MyBottomNavigationBar extends StatefulWidget {
+
+   final Function(int) onIconPresedCallback;
+  MyBottomNavigationBar({Key key, this.onIconPresedCallback}) : super(key: key);
+   
    @override
    _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
    

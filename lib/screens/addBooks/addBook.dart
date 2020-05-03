@@ -45,10 +45,10 @@ class _AddBookFormState extends State<AddBookForm> {
   var _category = '';
 
   @override
-  void initState() {
-    super.initState();
-    _rating = widget.book?.rating ?? 0.0;
-  }
+  // void initState() {
+  //   super.initState();
+  //   _rating = widget.book?.rating ?? 0.0;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -90,13 +90,13 @@ class _AddBookFormState extends State<AddBookForm> {
             onSaved: (value) => _category = value,
           ),
           InputDecorator(
-            decoration: InputDecoration(
-              labelText: 'Rating',
-              labelStyle: TextStyle(color: Colors.grey),
-              suffixIcon: Chip(
-                label: Text(_rating.toStringAsFixed(1)),
-              ),
-            ),
+            // decoration: InputDecoration(
+            //   labelText: 'Rating',
+            //   labelStyle: TextStyle(color: Colors.grey),
+            //   suffixIcon: Chip(
+            //     label: Text(_rating.toStringAsFixed(1)),
+            //   ),
+            // ),
             child: Slider(
               value: _rating.roundToDouble(),
               min: 0.0,

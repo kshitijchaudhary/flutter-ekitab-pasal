@@ -1,6 +1,6 @@
 import 'package:ekitaab_pasal/login/login.dart';
 import 'package:flutter/material.dart';
-import 'package:ekitaab_pasal/screens/home.dart';
+import 'package:ekitaab_pasal/login/login.dart' show Login;
 import 'package:ekitaab_pasal/widgets/light_color.dart';
 import 'package:ekitaab_pasal/widgets/text_style.dart';
 import 'package:ekitaab_pasal/widgets/extention.dart';
