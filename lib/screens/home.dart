@@ -145,17 +145,17 @@ void _onItemTapped(int index) {
     //     ],
     //   ),
     // );
-    void onBottomIconPressed(int index) {
-    if (index == 0 || index == 1) {
-      setState(() {
-        isHomePageSelected = true;
-      });
-    } else {
-      setState(() {
-        isHomePageSelected = false;
-      });
-    }
-  }
+  //   void onBottomIconPressed(int index) {
+  //   if (index == 0 || index == 1) {
+  //     setState(() {
+  //       isHomePageSelected = true;
+  //     });
+  //   } else {
+  //     setState(() {
+  //       isHomePageSelected = false;
+  //     });
+  //   }
+  // }
 
     return  Scaffold(
       appBar: AppBar(
@@ -356,69 +356,65 @@ void _onItemTapped(int index) {
 
 
           ),
-           Positioned(
-                bottom: 0,
-                right: 0,
-                child: MyBottomNavigationBar(
-                  onIconPresedCallback: onBottomIconPressed,
-                )),
+          //  Positioned(
+          //       bottom: 0,
+          //       right: 0,
+          //       child: screens[currentTab]
+                
+          //       ),
           ],
         ),
          ),
     
 
-//  bottomNavigationBar: new Theme(
-//     data: Theme.of(context).copyWith(
-//         // sets the background color of the `BottomNavigationBar`
-//         canvasColor: Colors.black,
-//         // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-//         primaryColor: Colors.white,
+ bottomNavigationBar: new Theme(
+    data: Theme.of(context).copyWith(
+        // sets the background color of the `BottomNavigationBar`
+        canvasColor: Colors.black,
+        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        primaryColor: Colors.white,
         
         
-//         textTheme: Theme
-//             .of(context)
-//             .textTheme
-//             .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
    
-//       child: new BottomNavigationBar(
+      child: new BottomNavigationBar(
         
-//           type: BottomNavigationBarType.fixed,
-//           // onTap: _onItemTapped,
-//           // currentIndex: currentTab,
+          type: BottomNavigationBarType.fixed,
+          // onTap: _onItemTapped,
+          // currentIndex: currentTab,
 
-//       items: const <BottomNavigationBarItem>[
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.home),
-//           title: Text('Home'),
-//         ),
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.library_books),
-//           title: Text('Your Books'),
-//         ),
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.add),
-//           title: Text('Rent Books'),
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text('Home'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.library_books),
+          title: Text('Your Books'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+          title: Text('Rent Books'),
           
-//         ),
-//            BottomNavigationBarItem(
-//            icon: Icon(Icons.notifications),
-//            title: Text('New Info'),
-//          ),
-//            BottomNavigationBarItem(
-//            icon: Icon(Icons.person_outline),
-//            title: Text('Profile'),
+        ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.notifications),
+           title: Text('New Info'),
+         ),
+           BottomNavigationBarItem(
+           icon: Icon(Icons.person_outline),
+           title: Text('Profile'),
 
-//          ),
-//       ],
-//       currentIndex: currentTab,
-//       selectedItemColor: Colors.greenAccent[800],
-//       onTap: _onItemTapped,
-//     ),   //  body: _setDrawerItemWidget(_selectedIndex)
-//    ),
-
-        
-   
-  
+         ),
+      ],
+      currentIndex: currentTab,
+      selectedItemColor: Colors.greenAccent[800],
+      onTap: _onItemTapped,
+    ),   //  body: _setDrawerItemWidget(_selectedIndex)
+   ), 
     );
     }
     
