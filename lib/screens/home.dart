@@ -351,15 +351,20 @@ void _onItemTapped(int index) {
                ],
              ),
             ), 
-            // Container(
-            //   child: ListView(
-            //     scrollDirection: Axis.horizontal,
-            //     children: <Widget>[
-            //     Container(height: 50,
-            //     color: Colors.amber[600],
-            //     child: const Center(child: Text('Entry A')),)
-            //   ],),
-            //   )       
+            Padding(
+            padding: EdgeInsets.all(8.0),
+              child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('LIST OF CATEGORIES',style: TextStyle(
+                   fontWeight: FontWeight.bold,
+                   fontSize: 20,
+                   color:Color.fromRGBO(97, 90, 90, 1)
+                 ),
+                ),
+              ],)
+
+
+              ),    
             ],
             
               
