@@ -5,7 +5,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mdi/mdi.dart';
 import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:ekitaab_pasal/login/login.dart';
+import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class DrawerItem {
@@ -49,37 +49,9 @@ class _UserProfileState extends State<UserProfile>{
    // _loadUserData();
     super.initState();
   }
- int __selectedIndex = 0; 
+ 
 static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-static const List<Widget> _widgetOptions = <Widget>[
-  Text(
-    'Index 0: Home',
-    style: optionStyle,
-  ),
-  Text(
-     'Index 1: Book',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 2: Shopping Cart',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 3: Transactions',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 4: Profile',
-     style: optionStyle,
-  ),
-  
-];
 
-void _onItemTapped(int index) {
-  setState(() {
-    __selectedIndex = index;
-  });
-}
   /*_loadUserData() async{
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     var user = jsonDecode(localStorage.getString('user'));
@@ -127,18 +99,18 @@ void _onItemTapped(int index) {
       );
     }
 
-    Widget image_slider_carousel = Container(
-      height: 250,
-      child: new Carousel(
-        boxFit: BoxFit.fill,
-        images: [
-          new AssetImage("assets/logo.png"),
-          new AssetImage("assets/logo.png"),
-          new AssetImage("assets/logo.png"),
+    // Widget image_slider_carousel = Container(
+    //   height: 250,
+    //   child: new Carousel(
+    //     boxFit: BoxFit.fill,
+    //     images: [
+    //       new AssetImage("assets/logo.png"),
+    //       new AssetImage("assets/logo.png"),
+    //       new AssetImage("assets/logo.png"),
           
-        ],
-      ),
-    );
+    //     ],
+    //   ),
+    // );
 
     return new Scaffold(
       appBar: new AppBar(
@@ -150,56 +122,7 @@ void _onItemTapped(int index) {
         backgroundColor: Colors.green,
        
       ),
-     
-        
-        
-        
-        
-      
     
-      
-      drawer: new Drawer(
-        child: Container(
-        color:Colors.greenAccent,
-        child: new ListView(
-          children: <Widget>[
-            
-            new UserAccountsDrawerHeader(
-              
-                accountName: new Text("UserName"),
-                accountEmail: new Text("name@example.com"),                             
-                // phoneNumber: new Text("00000000"),
-
-                currentAccountPicture: new CircleAvatar(
-                  maxRadius: 50.0,
-                  backgroundColor: Colors.red,
-                  // borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  child: new Text("U"),
-                  /*child: new Center(
-                    
-                    child: new Image.asset(
-                      "assets/madhav.jpg",
-                      height: 58.0,
-                      width: 58.0,
-                  ),
-                  )*/
-                 // backgroundImage: new Image.network(src),
-                ),     
-                decoration: BoxDecoration(
-                  color:Colors.white
-                  ),           
-            ),
-            new Column(
-              
-              children: drawerOptions
-            ),
-             ],
-        ),
-      ),
-      ),
-        
-   bottomNavigationBar: MyBottomNavigationBar(),
-
     body:new GestureDetector(
         onTap: () {
         // call this method here to hide soft keyboard
@@ -216,21 +139,21 @@ void _onItemTapped(int index) {
               children: <Widget>[
                   new Container(
                     margin: EdgeInsets.only(top:30),
-                    height:450.0,
+                    height:500.0,
                     width: 350.0,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                    // child: Card(
+                    //   shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(20.0),
                         
-                      ),
-                      elevation: 10.0,
+                    //   ),
+                     // elevation: 10.0,
                       child: Column(
                        crossAxisAlignment: CrossAxisAlignment.start,
                        children: <Widget>[
                          Container(
                            padding: EdgeInsets.only(top: 30),
                            child: Center(
-                           child: Text("Update Profile",
+                           child: Text("User Profile",
                             style: TextStyle(
                               color: Colors.black,
                               fontFamily: "Open-Sans",
@@ -242,12 +165,23 @@ void _onItemTapped(int index) {
                           ),
                           Container(
                             padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            child: TextField(
-                              keyboardType: TextInputType.text,
+                            child: 
+                            // Text("Your Name",
+                            // style: TextStyle(
+                            //   color: Colors.black,
+                            //   fontWeight: FontWeight.bold,
+                            //   fontSize: 12,
+                            //   ),
+                            // ),
+                            
+                            
+                            TextField(
+                             keyboardType: TextInputType.text,
                               autofocus: false,
                               decoration: InputDecoration(
                                 icon: Icon(Icons.person),
-                                labelText: "Full Name",
+                               labelText: "YOUR NAME", 
+                              prefixText:"KSHITIJ CHAUDHARY",
                               ),
                             ),
                           ),
@@ -258,7 +192,8 @@ void _onItemTapped(int index) {
                               autofocus: false,
                               decoration: InputDecoration(
                                 icon: Icon(Icons.phonelink_ring),
-                                labelText: "Phone Number",
+                                labelText: "Your Phone Number",
+                                prefixText: "+977XXXXXXXXXX",
                               ),
                             ),
                           ),
@@ -269,7 +204,7 @@ void _onItemTapped(int index) {
                               autofocus: false,
                               decoration: InputDecoration(
                                 icon: Icon(Icons.email),
-                                labelText: "Email",
+                                labelText: "yourname@example.com",
                               ),
                             ),
                           ),
@@ -280,7 +215,7 @@ void _onItemTapped(int index) {
                               autofocus: false,
                               decoration: InputDecoration(
                                 icon: Icon(Mdi.mapMarker),
-                                labelText: "Address",
+                                labelText: "123 Street Kathmandu NP",
                               ),
                             ),
                           ),
@@ -288,13 +223,13 @@ void _onItemTapped(int index) {
                             padding: EdgeInsets.only(top:30),
                             child: Center(
                               child: ButtonTheme(
-                                minWidth: 120.0,
-                                height: 55.0,
+                                minWidth: 90.0,
+                                height: 40.0,
                                 child: RaisedButton(
                                 shape: RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(30.0),
                                 ),
-                                color: Colors.deepPurpleAccent,
+                                color: Colors.green,
                                   onPressed: () {},
                                   child: const Text(
                                     'Update',
@@ -312,7 +247,7 @@ void _onItemTapped(int index) {
                           ),
                        ], 
                       )
-                    ),
+                   // ),
                   ),
               ]
               ),

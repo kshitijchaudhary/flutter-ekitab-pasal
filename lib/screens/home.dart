@@ -170,24 +170,19 @@ void _onItemTapped(int index) {
       ),
       
       //screens[currentTab],
-
+//CODE FOR FLOATING ACTION BUTTON
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        
-        onPressed: () {},
+        onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => UserProfile()),
+              );
+          },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-
-   
-     
-      
-        
-        
-        
-      
-    
-      
+//Code for Drawer      
       drawer: new Drawer(
         child: Container(
         color:Colors.greenAccent,
@@ -224,14 +219,16 @@ void _onItemTapped(int index) {
         ),
       ),
       ),
-
+// Drawer Code Ends Here
   
        // bottomNavigationBar: MyBottomNavigationBar(),
          body: SafeArea(
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[    
-         
+        //  Center(
+        //         child: screens.elementAt(currentTab),
+        //         ),
          SingleChildScrollView(
           
           child:Column(
@@ -273,7 +270,8 @@ void _onItemTapped(int index) {
                         ),
                       ],
                       ),
-              )),
+              ),
+              ),
            Transform.translate(
              offset:Offset(0,-35),
             child: FadeAnimation(1.3,Container(
@@ -308,7 +306,7 @@ void _onItemTapped(int index) {
           //  ),
            
            
-               Padding(
+              Padding(
              padding: EdgeInsets.all(8.0),
              child: Row(
                crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,47 +318,57 @@ void _onItemTapped(int index) {
                  ),
                  
                  ),
-                 ),
-                 
+                 ), 
                    Padding(
-                         padding: const EdgeInsets.fromLTRB(150.0, 0, 8.0, 8.0),
+                        padding: const EdgeInsets.fromLTRB(150.0, 0, 8.0, 8.0),
                           child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(40.0),
                                   border: Border.all(color: Color(0xFFFF900F))),
                               child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                
+                                padding: const EdgeInsets.all(3.0),                
                                 child: Icon(Icons.arrow_forward_ios,
                                     ),
-                              )),
-                        )
-             
+                              ),
+                              )
+                        ),
+                        
+                      
+
+            //  Expanded(
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children: <Widget>[
+            //     Container(
+            //     color: Colors.amber[600],
+            //     child: const Center(child: Text('Entry A')),
+            //     )
+            //   ],
+            //   ), 
+            //   ),
+        
                ],
              ),
-               ),
-           
-           
-           
-                    
-                  
-
-              
-
-              
+            ), 
+            // Container(
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children: <Widget>[
+            //     Container(height: 50,
+            //     color: Colors.amber[600],
+            //     child: const Center(child: Text('Entry A')),)
+            //   ],),
+            //   )       
             ],
+            
+              
           ),
+        
           
-      
-
-
           ),
-          //  Positioned(
-          //       bottom: 0,
-          //       right: 0,
+          // Center(
           //       child: screens[currentTab]
-                
           //       ),
           ],
         ),
