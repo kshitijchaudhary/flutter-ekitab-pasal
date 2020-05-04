@@ -74,7 +74,7 @@ class _CheckAuthState extends State<CheckAuth> {
     if(token != null){
       setState(() {
         isAuth = true;
-      });
+      }); 
     }
   }
   @override

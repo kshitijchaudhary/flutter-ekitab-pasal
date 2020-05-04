@@ -114,7 +114,7 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
 
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(widget.drawerItems[_selectedIndex].title),
+        title: new Text('User Profile'),
         actions: <Widget>[
           new IconButton(icon: Icon(Icons.notifications, color: Colors.white), onPressed: null),
         ],
@@ -150,94 +150,210 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
                       child: Column(
                        crossAxisAlignment: CrossAxisAlignment.start,
                        children: <Widget>[
-                         Container(
-                           padding: EdgeInsets.only(top: 30),
-                           child: Center(
-                           child: Text("User Profile",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "Open-Sans",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                              letterSpacing: 1.5)
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.start,
+                           children: <Widget>[
+                             Padding(
+                                padding: EdgeInsets.only(left: 20, right:20, top:20),
+                                 child: Icon(Mdi.faceProfile, size: 40.0, color: Colors.black),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 30),
+                                child: Center(
+                                child: Text("User Profile",
+                                style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Open-Sans",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                                letterSpacing: 1.5)
                             ),
                            ),
+                              ),
+                           ],
+
+                           
                           ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            child: 
-                            // Text("Your Name",
-                            // style: TextStyle(
-                            //   color: Colors.black,
-                            //   fontWeight: FontWeight.bold,
-                            //   fontSize: 12,
-                            //   ),
-                            // ),
+
+                          // Container(
+                          //   padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                          //   child: 
+                          //   // Text("Your Name",
+                          //   // style: TextStyle(
+                          //   //   color: Colors.black,
+                          //   //   fontWeight: FontWeight.bold,
+                          //   //   fontSize: 12,
+                          //   //   ),
+                          //   // ),
                             
                             
-                            TextField(
-                             keyboardType: TextInputType.text,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.person),
-                               labelText: "YOUR NAME", 
-                              prefixText:"KSHITIJ CHAUDHARY",
+                          //   TextField(
+                          //    keyboardType: TextInputType.text,
+                          //     autofocus: false,
+                          //     decoration: InputDecoration(
+                          //       icon: Icon(Icons.person),
+                          //      labelText: "YOUR NAME", 
+                          //     prefixText:"KSHITIJ CHAUDHARY",
+                          //     ),
+                          //   ),
+                          // ),
+                          // Container(
+                          //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          //   child: TextField(
+                          //     keyboardType: TextInputType.number,
+                          //     autofocus: false,
+                          //     decoration: InputDecoration(
+                          //       icon: Icon(Icons.phonelink_ring),
+                          //       labelText: "Your Phone Number",
+                          //       prefixText: "+977XXXXXXXXXX",
+                          //     ),
+                          //   ),
+                          // ),
+                          // Container(
+                          //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          //   child: TextField(
+                          //     keyboardType: TextInputType.text,
+                          //     autofocus: false,
+                          //     decoration: InputDecoration(
+                          //       icon: Icon(Icons.email),
+                          //       labelText: "yourname@example.com",
+                          //     ),
+                          //   ),
+                          // ),
+                          // Container(
+                          //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          //   child: TextField(
+                          //     keyboardType: TextInputType.text,
+                          //     autofocus: false,
+                          //     decoration: InputDecoration(
+                          //       icon: Icon(Mdi.mapMarker),
+                          //       labelText: "123 Street Kathmandu NP",
+                          //     ),
+                          //   ),
+                          // ),
+                          // Container(
+                          //   padding: EdgeInsets.only(top:30),
+                          //   child: Center(
+                          //     child: ButtonTheme(
+                          //       minWidth: 90.0,
+                          //       height: 40.0,
+                          //       child: RaisedButton(
+                          //       shape: RoundedRectangleBorder(
+                          //         borderRadius: new BorderRadius.circular(30.0),
+                          //       ),
+                          //       color: Colors.green,
+                          //         onPressed: () {},
+                          //         child: const Text(
+                          //           'Update',
+                          //           style: TextStyle(
+                          //             fontSize: 20,
+                          //             fontFamily: "Open-Sans",
+                          //             color: Colors.white
+                          //             ),
+                                    
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                            
+                          // ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right:20, top:20),
+                                 child: Icon(Mdi.renameBox, size: 30.0, color: Colors.black),
                               ),
-                            ),
+                              Padding(padding: EdgeInsets.only(top:20),
+                                child:Text('Kshitij Chaudhary',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Open-Sans",
+                                  fontSize: 20,
+                                  letterSpacing: 1.0)
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                            child: TextField(
-                              keyboardType: TextInputType.number,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.phonelink_ring),
-                                labelText: "Your Phone Number",
-                                prefixText: "+977XXXXXXXXXX",
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right:20, top:10),
+                                 child: Icon(Mdi.phoneRing, size: 30.0, color: Colors.black), 
+                                 
                               ),
-                            ),
+                              Padding(padding: EdgeInsets.only(top:10),
+                                child:Text('+977 98XXXXXXXX',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Open-Sans",
+                                  fontSize: 20,
+                                  letterSpacing: 1.0)
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                            child: TextField(
-                              keyboardType: TextInputType.text,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.email),
-                                labelText: "yourname@example.com",
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right:20, top:10),
+                                 child: Icon(Mdi.email, size: 30.0, color: Colors.black),
                               ),
-                            ),
+                              Padding(padding: EdgeInsets.only(top:10),
+                                child:Text('yourname@example.com',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Open-Sans",
+                                  fontSize: 20,
+                                  letterSpacing: 1.0)
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                            child: TextField(
-                              keyboardType: TextInputType.text,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                icon: Icon(Mdi.mapMarker),
-                                labelText: "123 Street Kathmandu NP",
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, right:20, top:10),
+                                 child: Icon(Mdi.mapMarker, size: 30.0, color: Colors.black),
                               ),
-                            ),
+                              Padding(padding: EdgeInsets.only(top:10),
+                                child:Text('123 Street Kathmandu NP',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Open-Sans",
+                                  fontSize: 20,
+                                  letterSpacing: 1.5)
+                                ),
+                              ),
+                            ],
                           ),
                           Container(
                             padding: EdgeInsets.only(top:30),
                             child: Center(
                               child: ButtonTheme(
-                                minWidth: 90.0,
-                                height: 40.0,
+                                minWidth: 120.0,
+                                height: 50.0,
                                 child: RaisedButton(
                                 shape: RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(30.0),
                                 ),
                                 color: Colors.green,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => UpdateProfileCust()), );
+                                  },
                                   child: const Text(
-                                    'Update',
+                                    'Update Profile',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontFamily: "Open-Sans",
                                       color: Colors.white
-                                      ),
+                                      )
                                     
                                   ),
                                 ),
@@ -245,6 +361,11 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
                             ),
                             
                           ),
+                  
+              
+              
+            
+ 
                        ], 
                       )
                    // ),

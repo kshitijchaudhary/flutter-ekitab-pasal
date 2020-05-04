@@ -245,8 +245,8 @@ void _onItemTapped(int index) {
                     gradient:LinearGradient(
                       begin:Alignment.topRight,
                       colors:[
-                        Color.fromRGBO(255, 250, 182, 1),
-                        Color.fromRGBO(255, 239, 78, 1)
+                        Color.fromRGBO(0, 250, 154, 1),
+                        Color.fromRGBO(0, 128, 128, 1)
                       ]
                     ), 
                     ), 
@@ -308,8 +308,10 @@ void _onItemTapped(int index) {
            
               Padding(
              padding: EdgeInsets.all(8.0),
+            
              child: Row(
                crossAxisAlignment: CrossAxisAlignment.start,
+              
                children: <Widget>[
                  FadeAnimation(1.2,Text('Browse by Categories',style: TextStyle(
                    fontWeight: FontWeight.bold,
@@ -319,6 +321,16 @@ void _onItemTapped(int index) {
                  
                  ),
                  ), 
+                //  Padding(
+                //    padding: EdgeInsets.all(1.0),
+                //    child: Text('See All',
+                //    style: TextStyle(
+                //    fontWeight: FontWeight.bold,
+                //    fontSize: 5,
+                //    color:Color.fromRGBO(97, 90, 90, 1)
+                //  ),
+                //    ),                  
+                //  ),
                    Padding(
                         padding: const EdgeInsets.fromLTRB(150.0, 0, 8.0, 8.0),
                           child: Container(
@@ -333,6 +345,7 @@ void _onItemTapped(int index) {
                               ),
                               )
                         ),
+             
                         
                       
 
@@ -349,8 +362,10 @@ void _onItemTapped(int index) {
             //   ),
         
                ],
-             ),
+               ),
+             
             ), 
+           
             Padding(
             padding: EdgeInsets.all(8.0),
               child: Row(crossAxisAlignment: CrossAxisAlignment.start,
