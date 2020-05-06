@@ -11,10 +11,15 @@ class _BookStatusState extends State<BookStatus> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("Book Status"),
+        title: new Text("Your Books"),
+        actions: <Widget>[
+          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: null),
+          
+        ],
+        backgroundColor: Colors.green,
       ),
       body: new Center(
-        child: new Text("Book Status Page "),
+        child: new Text("You have no books yet "),
       ),
     );
   }

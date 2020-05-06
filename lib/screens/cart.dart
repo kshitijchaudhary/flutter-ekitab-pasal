@@ -11,9 +11,11 @@ class _CartState extends State<Cart> {
     return Scaffold(
        appBar: new AppBar(
         title: new Text("Your Cart"),
+        backgroundColor: Colors.green,
       ),
+      
       body: new Center(
-        child: new Text("Cart Page "),
+        child: new Text("You have nothing to display in cart page "),
       ),
       
     );

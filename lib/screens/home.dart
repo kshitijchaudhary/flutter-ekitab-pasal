@@ -22,6 +22,10 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 
+import 'about.dart';
+import 'contactus.dart';
+import 'faq.dart';
+
 
 
 class DrawerItem {
@@ -161,7 +165,12 @@ void _onItemTapped(int index) {
       appBar: AppBar(
         title: new Text(widget.drawerItems[_selectedIndex].title) ,
         actions: <Widget>[
-          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: null),
+          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Cart()),
+              );
+          }),
           
         ],
         elevation: defaultTargetPlatform== TargetPlatform.android?5.0:0.0,
@@ -176,7 +185,7 @@ void _onItemTapped(int index) {
         onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UserProfile()),
+                MaterialPageRoute(builder: (context) => FAQPage()),
               );
           },
       ),

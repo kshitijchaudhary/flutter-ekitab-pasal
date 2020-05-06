@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:ekitaab_pasal/screens/cart.dart';
 
-class BookHistory extends StatefulWidget {
+class Notifications extends StatefulWidget {
   @override
-  _BookHistoryState createState() => _BookHistoryState();
+  _NotificationsState createState() => _NotificationsState();
 }
 
-class _BookHistoryState extends State<BookHistory> {
+class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("Book Status"),
+        title: new Text("Notifications"),
+        actions: <Widget>[
+          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Cart()),
+              );
+          },),
+          
+        ],
+        backgroundColor: Colors.green,
       ),
       body: new Center(
-        child: new Text("Book Status Page "),
+        child: new Text("You have no notifications yet "),
       ),
     );
   }

@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ekitaab_pasal/screens/cart.dart';
+
 class DrawerItem {
   String title;
   IconData icon;
@@ -66,57 +68,18 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
     Widget build(BuildContext context) {
       MediaQueryData media = MediaQuery.of(context);
 
-    final Size screenSize = media.size;
-      var drawerOptions = <Widget>[];
-    for (var i = 0; i < widget.drawerItems.length; i++) {
-      var d = widget.drawerItems[i];
-      drawerOptions.add(
-        new Column(
-          children: <Widget>[
-            
-            new ListTile(
-              leading: new Icon(
-                  d.icon,
-                  color: Colors.black
-              ),
-              title: new Text(
-                  d.title,
-                  style: new TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-                  )),
-              selected: i == _selectedIndex,
-              onTap: () => _onSelectItem(i),
-              
-            ),
-            new Divider(
-              color: Colors.white,
-              height: 2.0,
-            )
-          ],
-          
-        )
-      );
-    }
-
-    // Widget image_slider_carousel = Container(
-    //   height: 250,
-    //   child: new Carousel(
-    //     boxFit: BoxFit.fill,
-    //     images: [
-    //       new AssetImage("assets/logo.png"),
-    //       new AssetImage("assets/logo.png"),
-    //       new AssetImage("assets/logo.png"),
-          
-    //     ],
-    //   ),
-    // );
+   
 
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('User Profile'),
         actions: <Widget>[
-          new IconButton(icon: Icon(Icons.notifications, color: Colors.white), onPressed: null),
+          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed:  () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Cart()),
+              );
+          }),
         ],
         elevation: defaultTargetPlatform== TargetPlatform.android?5.0:0.0,
         backgroundColor: Colors.green,
@@ -129,7 +92,7 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
         FocusScope.of(context).requestFocus(new FocusNode());
         },
         child: Container(
-        width: screenSize.width,
+       
         child: new ListView( 
         children: <Widget>[
           new Container(
