@@ -7,6 +7,7 @@ import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:ekitaab_pasal/screens/book_status.dart';
 import 'package:ekitaab_pasal/screens/cart.dart';
 import 'package:ekitaab_pasal/screens/profile.dart';
+import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 
 import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +22,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ekitaab_pasal/models/bottom_navigation.dart';
-
 import 'about.dart';
 import 'contactus.dart';
 import 'faq.dart';
@@ -35,18 +35,6 @@ class DrawerItem {
 }
 //String selectedCategorie="All";
 class Home extends StatefulWidget {
-  final drawerItems = [
-    new DrawerItem("Home", Icons.home),
-    new DrawerItem("Notifications", Icons.notifications),
-    new DrawerItem("Profile", Icons.person),
-    new DrawerItem("Contact Us", Icons.contact_mail),
-    // new DrawerItem("Setting", Icons.settings),
-    new DrawerItem("FAQs", Icons.question_answer),
-    new DrawerItem("About App", Icons.library_books),
-    new DrawerItem("Log Out", Icons.close),
-    
-    
-  ];
  
   @override
   _HomeState createState() => _HomeState();
@@ -74,7 +62,7 @@ class _HomeState extends State<Home>{
     bool isHomePageSelected = true;
 
 
-  int _selectedIndex = 0;
+  //int _selectedIndex = 0;
   @override
   void initState(){
    // _loadUserData();
@@ -105,38 +93,38 @@ void _onItemTapped(int index) {
     Widget build(BuildContext context) {
       MediaQueryData media = MediaQuery.of(context);
 
-      final Size screenSize = media.size;
-      var drawerOptions = <Widget>[];
-    for (var i = 0; i < widget.drawerItems.length; i++) {
-      var d = widget.drawerItems[i];
-      drawerOptions.add(
-        new Column(
-          children: <Widget>[
+    //   final Size screenSize = media.size;
+    //   var drawerOptions = <Widget>[];
+    // for (var i = 0; i < widget.drawerItems.length; i++) {
+    //   var d = widget.drawerItems[i];
+    //   drawerOptions.add(
+    //     new Column(
+    //       children: <Widget>[
             
-            new ListTile(
-              leading: new Icon(
-                  d.icon,
-                  color: Colors.black
-              ),
-              title: new Text(
-                  d.title,
-                  style: new TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-                  )),
-              selected: i == _selectedIndex,
-              onTap: () => _onSelectItem(i),
+    //         new ListTile(
+    //           leading: new Icon(
+    //               d.icon,
+    //               color: Colors.black
+    //           ),
+    //           title: new Text(
+    //               d.title,
+    //               style: new TextStyle(
+    //                   color: Colors.black,
+    //                   fontWeight: FontWeight.bold
+    //               )),
+    //           selected: i == _selectedIndex,
+    //           onTap: () => _onSelectItem(i),
               
-            ),
-            new Divider(
-              color: Colors.white,
-              height: 2.0,
-            )
-          ],
+    //         ),
+    //         new Divider(
+    //           color: Colors.white,
+    //           height: 2.0,
+    //         )
+    //       ],
           
-        )
-      );
-    }
+    //     )
+    //   );
+    // }
     //   Widget image_slider_carousel = Container(
     //   height: 250,
     //   child: new Carousel(
@@ -163,7 +151,8 @@ void _onItemTapped(int index) {
 
     return  Scaffold(
       appBar: AppBar(
-        title: new Text(widget.drawerItems[_selectedIndex].title) ,
+        title: new Text("Home") ,
+        //widget.drawerItems[_selectedIndex].title
         actions: <Widget>[
           new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: () {
               Navigator.push(
@@ -191,43 +180,44 @@ void _onItemTapped(int index) {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
+        drawer: AppDrawer(),
 //Code for Drawer      
-      drawer: new Drawer(
-        child: Container(
-        color:Colors.greenAccent,
-        child: new ListView(
-          children: <Widget>[            
-            new UserAccountsDrawerHeader(              
-                accountName: new Text("Ekitab Pasal"),
-                accountEmail: new Text("info@ekitabpasal.com"),                             
-                // phoneNumber: new Text("00000000"),
-                currentAccountPicture: new CircleAvatar(
-                  maxRadius: 50.0,
-                  backgroundColor: Colors.red,
-                  // borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  child: new Text("E"),
-                  /*child: new Center(
+      // drawer: new Drawer(
+      //   child: Container(
+      //   color:Colors.greenAccent,
+      //   child: new ListView(
+      //     children: <Widget>[            
+      //       new UserAccountsDrawerHeader(              
+      //           accountName: new Text("Ekitab Pasal"),
+      //           accountEmail: new Text("info@ekitabpasal.com"),                             
+      //           // phoneNumber: new Text("00000000"),
+      //           currentAccountPicture: new CircleAvatar(
+      //             maxRadius: 50.0,
+      //             backgroundColor: Colors.red,
+      //             // borderRadius: BorderRadius.all(Radius.circular(50.0)),
+      //             child: new Text("E"),
+      //             /*child: new Center(
                     
-                    child: new Image.asset(
-                      "assets/madhav.jpg",
-                      height: 58.0,
-                      width: 58.0,
-                  ),
-                  )*/
-                 // backgroundImage: new Image.network(src),
-                ),     
-                decoration: BoxDecoration(
-                  color:Colors.white
-                  ),           
-            ),
-            new Column(
+      //               child: new Image.asset(
+      //                 "assets/madhav.jpg",
+      //                 height: 58.0,
+      //                 width: 58.0,
+      //             ),
+      //             )*/
+      //            // backgroundImage: new Image.network(src),
+      //           ),     
+      //           decoration: BoxDecoration(
+      //             color:Colors.white
+      //             ),           
+      //       ),
+      //       new Column(
               
-              children: drawerOptions
-            ),
-             ],
-        ),
-      ),
-      ),
+      //         children: drawerOptions
+      //       ),
+      //        ],
+      //   ),
+      // ),
+      // ),
 // Drawer Code Ends Here
   
        // bottomNavigationBar: MyBottomNavigationBar(),
@@ -457,10 +447,10 @@ void _onItemTapped(int index) {
     
     
 
-  _onSelectItem(int index) {
-    setState(() => _selectedIndex = index);
-    Navigator.of(context).pop(); //
-  }
+  // _onSelectItem(int index) {
+  //   setState(() => _selectedIndex = index);
+  //   Navigator.of(context).pop(); //
+  // }
 
 
 }
