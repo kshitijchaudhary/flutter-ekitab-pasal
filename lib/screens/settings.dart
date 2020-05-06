@@ -11,10 +11,6 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
        appBar: new AppBar(
         title: new Text("Settings"),
-        actions: <Widget>[
-          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: null),
-          
-        ],
         backgroundColor: Colors.green,
       ),
       body: new Center(

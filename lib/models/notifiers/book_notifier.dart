@@ -1,5 +1,6 @@
 import 'package:ekitaab_pasal/models/book.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 
 /// Class used to manage the state in the app
 /// Contains all the books that are available

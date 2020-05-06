@@ -93,7 +93,7 @@ void _onItemTapped(int index) {
     Widget build(BuildContext context) {
       MediaQueryData media = MediaQuery.of(context);
 
-    //   final Size screenSize = media.size;
+       final Size screenSize = media.size;
     
 
     return  Scaffold(
@@ -121,7 +121,7 @@ void _onItemTapped(int index) {
         onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FAQPage()),
+                MaterialPageRoute(builder: (context) => AddBookForm()),
               );
           },
       ),
