@@ -80,8 +80,7 @@ class _AppDrawerState extends State<AppDrawer> {
               Navigator.pop(context);
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (_) {
-                    
+                  builder: (_) {      
                     return Home();
                   },
                 ),
@@ -107,7 +106,7 @@ class _AppDrawerState extends State<AppDrawer> {
             },
           ),
           new Divider(
-              color: Colors.deepPurple,
+              color: Colors.greenAccent,
               height: 2.0,
             ),
           buildList(
@@ -217,7 +216,7 @@ class _AppDrawerState extends State<AppDrawer> {
             },
           ),
           new Divider(
-              color: Colors.deepPurple,
+              color: Colors.greenAccent,
               height: 2.0,
             ),
         ],

@@ -70,7 +70,7 @@ class _HomeState extends State<Home>{
     super.initState();
   }
   int currentTab = 0; 
-// //static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+ //static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
 
   final List<Widget> screens =
@@ -94,60 +94,7 @@ void _onItemTapped(int index) {
       MediaQueryData media = MediaQuery.of(context);
 
     //   final Size screenSize = media.size;
-    //   var drawerOptions = <Widget>[];
-    // for (var i = 0; i < widget.drawerItems.length; i++) {
-    //   var d = widget.drawerItems[i];
-    //   drawerOptions.add(
-    //     new Column(
-    //       children: <Widget>[
-            
-    //         new ListTile(
-    //           leading: new Icon(
-    //               d.icon,
-    //               color: Colors.black
-    //           ),
-    //           title: new Text(
-    //               d.title,
-    //               style: new TextStyle(
-    //                   color: Colors.black,
-    //                   fontWeight: FontWeight.bold
-    //               )),
-    //           selected: i == _selectedIndex,
-    //           onTap: () => _onSelectItem(i),
-              
-    //         ),
-    //         new Divider(
-    //           color: Colors.white,
-    //           height: 2.0,
-    //         )
-    //       ],
-          
-    //     )
-    //   );
-    // }
-    //   Widget image_slider_carousel = Container(
-    //   height: 250,
-    //   child: new Carousel(
-    //     boxFit: BoxFit.fill,
-    //     images: [
-    //       new AssetImage("assets/logo.png"),
-    //       new AssetImage("assets/logo.png"),
-    //       new AssetImage("assets/logo.png"),
-          
-    //     ],
-    //   ),
-    // );
-  //   void onBottomIconPressed(int index) {
-  //   if (index == 0 || index == 1) {
-  //     setState(() {
-  //       isHomePageSelected = true;
-  //     });
-  //   } else {
-  //     setState(() {
-  //       isHomePageSelected = false;
-  //     });
-  //   }
-  // }
+    
 
     return  Scaffold(
       appBar: AppBar(
@@ -179,47 +126,8 @@ void _onItemTapped(int index) {
           },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
+        //FOR APP DRAWER
         drawer: AppDrawer(),
-//Code for Drawer      
-      // drawer: new Drawer(
-      //   child: Container(
-      //   color:Colors.greenAccent,
-      //   child: new ListView(
-      //     children: <Widget>[            
-      //       new UserAccountsDrawerHeader(              
-      //           accountName: new Text("Ekitab Pasal"),
-      //           accountEmail: new Text("info@ekitabpasal.com"),                             
-      //           // phoneNumber: new Text("00000000"),
-      //           currentAccountPicture: new CircleAvatar(
-      //             maxRadius: 50.0,
-      //             backgroundColor: Colors.red,
-      //             // borderRadius: BorderRadius.all(Radius.circular(50.0)),
-      //             child: new Text("E"),
-      //             /*child: new Center(
-                    
-      //               child: new Image.asset(
-      //                 "assets/madhav.jpg",
-      //                 height: 58.0,
-      //                 width: 58.0,
-      //             ),
-      //             )*/
-      //            // backgroundImage: new Image.network(src),
-      //           ),     
-      //           decoration: BoxDecoration(
-      //             color:Colors.white
-      //             ),           
-      //       ),
-      //       new Column(
-              
-      //         children: drawerOptions
-      //       ),
-      //        ],
-      //   ),
-      // ),
-      // ),
-// Drawer Code Ends Here
-  
        // bottomNavigationBar: MyBottomNavigationBar(),
          body: SafeArea(
         child: Stack(
@@ -419,8 +327,9 @@ void _onItemTapped(int index) {
           title: Text('Home'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          title: Text('Your Books'),
+          icon: Icon(Icons.library_books, ),
+          title: Text('Your Books',
+          ),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add),
@@ -454,37 +363,7 @@ void _onItemTapped(int index) {
 
 
 }
-        // return Scaffold(
-        //   appBar: AppBar(
-        //     title: Text('E Kitab Pasal'),
-        //     backgroundColor: Colors.teal,
-        //   ),
-        //   body: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //         children: <Widget>[
-        //           Text('Hi, $name',
-        //           style: TextStyle(
-        //             fontWeight: FontWeight.bold
-        //             ),
-        //           ),
-        //           Center(
-        //             child: RaisedButton(
-        //               elevation: 10,
-        //               onPressed: (){
-        //                // logout();
-        //               },
-        //               color: Colors.teal,
-        //               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-        //               child: Text('Logout'),
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //   ),
-        // );
-     // }
+      
 
  /* void logout() async{
     var res = await Network().getData('/logout');
