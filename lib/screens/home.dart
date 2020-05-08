@@ -21,10 +21,11 @@ import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:ekitaab_pasal/models/bottom_navigation.dart';
+//import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 import 'about.dart';
 import 'contactus.dart';
 import 'faq.dart';
+import 'notifications.dart';
 
 
 
@@ -83,6 +84,8 @@ class _HomeState extends State<Home>{
  ];
 
 //Active Page Tabs  
+final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = Home();
 
 void _onItemTapped(int index) {
    setState(() {
@@ -117,7 +120,8 @@ void _onItemTapped(int index) {
       //screens[currentTab],
 //CODE FOR FLOATING ACTION BUTTON
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,color: Colors.green,),
+        
         onPressed: () {
               Navigator.push(
                 context,
@@ -129,10 +133,18 @@ void _onItemTapped(int index) {
         //FOR APP DRAWER
         drawer: AppDrawer(),
        // bottomNavigationBar: MyBottomNavigationBar(),
-         body: SafeArea(
+         body: 
+         
+         
+         
+         SafeArea(
         child: Stack(
           fit: StackFit.expand,
-          children: <Widget>[    
+          children: <Widget>[   
+          //       PageStorage(
+          //   child: currentScreen,
+          //   bucket: bucket,
+          // ), 
         //  Center(
         //         child: screens.elementAt(currentTab),
         //         ),
@@ -300,57 +312,187 @@ void _onItemTapped(int index) {
           ],
         ),
          ),
-    
+  
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            Home(); // if user taps on this dashboard tab will be active
+                        currentTab = 0;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.home,
+                          color: currentTab == 0 ? Colors.green : Colors.black,
+                        ),
+                        Text(
+                          'Home',
+                          style: TextStyle(
+                            color: currentTab == 0 ? Colors.green : Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            BookStatus(); // if user taps on this dashboard tab will be active
+                        currentTab = 1;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.library_books,
+                          color: currentTab == 1 ? Colors.green : Colors.black,
+                        ),
+                        Text(
+                          'Your Books',
+                          style: TextStyle(
+                            color: currentTab == 1 ? Colors.green : Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
 
- bottomNavigationBar: new Theme(
-    data: Theme.of(context).copyWith(
-        // sets the background color of the `BottomNavigationBar`
-        canvasColor: Colors.black,
-        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-        primaryColor: Colors.white,
-        
-        
-        textTheme: Theme
-            .of(context)
-            .textTheme
-            .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
-   
-      child: new BottomNavigationBar(
-        
-          type: BottomNavigationBarType.fixed,
-          // onTap: _onItemTapped,
-          // currentIndex: currentTab,
+              // Right Tab bar icons
 
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_books, ),
-          title: Text('Your Books',
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            Notifications(); // if user taps on this dashboard tab will be active
+                        currentTab = 2;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.notifications,
+                          color: currentTab == 2 ? Colors.green : Colors.black,
+                        ),
+                        Text(
+                          'Notifications',
+                          style: TextStyle(
+                            color: currentTab == 2 ? Colors.green : Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            UserProfile(); // if user taps on this dashboard tab will be active
+                        currentTab = 3;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.person_outline,
+                          color: currentTab == 3 ? Colors.green : Colors.black,
+                        ),
+                        Text(
+                          'Profile',
+                          style: TextStyle(
+                            color: currentTab == 3 ? Colors.green : Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
+
+            ],
           ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.add),
-          title: Text('Rent Books'),
-          
-        ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.notifications),
-           title: Text('New Info'),
-         ),
-           BottomNavigationBarItem(
-           icon: Icon(Icons.person_outline),
-           title: Text('Profile'),
+      ),
 
-         ),
-      ],
-      currentIndex: currentTab,
-      selectedItemColor: Colors.greenAccent[800],
-      onTap: _onItemTapped,
-    ),   //  body: _setDrawerItemWidget(_selectedIndex)
-   ), 
+
+
+
+
+//  bottomNavigationBar: new Theme(
+//     data: Theme.of(context).copyWith(
+//         // sets the background color of the `BottomNavigationBar`
+//         canvasColor: Colors.black,
+//         // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+//         primaryColor: Colors.white,
+        
+        
+//         textTheme: Theme
+//             .of(context)
+//             .textTheme
+//             .copyWith(caption: new TextStyle(color: Colors.white))), // sets the inactive color of the `BottomNavigationBar`
+   
+//       child: new BottomNavigationBar(
+        
+//           type: BottomNavigationBarType.fixed,
+//           // onTap: _onItemTapped,
+//           // currentIndex: currentTab,
+
+//       items: const <BottomNavigationBarItem>[
+//         BottomNavigationBarItem(
+//           icon: Icon(Icons.home),
+//           title: Text('Home'),
+//         ),
+//         BottomNavigationBarItem(
+//           icon: Icon(Icons.library_books, ),
+//           title: Text('Your Books',
+//           ),
+//         ),
+//         BottomNavigationBarItem(
+//           icon: Icon(Icons.add),
+//           title: Text('Rent Books'),
+          
+//         ),
+//            BottomNavigationBarItem(
+//            icon: Icon(Icons.notifications),
+//            title: Text('New Info'),
+//          ),
+//            BottomNavigationBarItem(
+//            icon: Icon(Icons.person_outline),
+//            title: Text('Profile'),
+
+//          ),
+//       ],
+//       currentIndex: currentTab,
+//       selectedItemColor: Colors.greenAccent[800],
+//       onTap: _onItemTapped,
+//     ),   //  body: _setDrawerItemWidget(_selectedIndex)
+//    ), 
     );
     }
     
