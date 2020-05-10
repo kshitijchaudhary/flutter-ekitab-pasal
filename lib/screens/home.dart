@@ -250,7 +250,7 @@ void _onItemTapped(int index) {
       //screens[currentTab],
 //CODE FOR FLOATING ACTION BUTTON
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add,color: Colors.blueAccent,),
+        child: Icon(Icons.add,color: Colors.white,),
         backgroundColor: Colors.black,
         onPressed: () {
               Navigator.push(
@@ -277,7 +277,10 @@ void _onItemTapped(int index) {
         //  Center(
         //         child: screens.elementAt(currentTab),
         //         ),
-        child: SingleChildScrollView(
+        child: 
+        //Container(
+
+          SingleChildScrollView(
           
           child:Column(
             children:<Widget>[
@@ -435,6 +438,7 @@ void _onItemTapped(int index) {
         
           
           ),
+       // ),
           // Center(
           //       child: screens[currentTab]
           //       ),
