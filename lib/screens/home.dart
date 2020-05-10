@@ -92,6 +92,9 @@ void _onItemTapped(int index) {
      currentTab = index;
    });
  }
+//  Widget childWidget = ChildWidget(
+    
+//   );
     @override
     Widget build(BuildContext context) {
       MediaQueryData media = MediaQuery.of(context);
@@ -100,6 +103,133 @@ void _onItemTapped(int index) {
     
 
     return  Scaffold(
+        bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        color: Colors.black,
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            Home(); // if user taps on this dashboard tab will be active
+                        currentTab = 0;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.home,
+                          color: currentTab == 0 ? Colors.blueAccent : Colors.white,
+                        ),
+                        Text(
+                          'Home',
+                          style: TextStyle(
+                            color: currentTab == 0 ? Colors.blueAccent : Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            BookStatus(); // if user taps on this dashboard tab will be active
+                        currentTab = 1;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.library_books,
+                          color: currentTab == 1 ? Colors.blueAccent : Colors.white,
+                        ),
+                        Text(
+                          'Your Books',
+                          style: TextStyle(
+                            color: currentTab == 1 ? Colors.blueAccent : Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+
+              // Right Tab bar icons
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            Notifications(); // if user taps on this dashboard tab will be active
+                        currentTab = 2;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.notifications,
+                          color: currentTab == 2 ? Colors.blueAccent : Colors.white,
+                        ),
+                        Text(
+                          'Notifications',
+                          style: TextStyle(
+                            color: currentTab == 2 ? Colors.blueAccent : Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen =
+                            UserProfile(); // if user taps on this dashboard tab will be active
+                        currentTab = 3;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.person_outline,
+                          color: currentTab == 3 ? Colors.blueAccent : Colors.white,
+                        ),
+                        Text(
+                          'Profile',
+                          style: TextStyle(
+                            color: currentTab == 3 ? Colors.blueAccent : Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
+
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         title: new Text("Home") ,
         //widget.drawerItems[_selectedIndex].title
@@ -120,8 +250,8 @@ void _onItemTapped(int index) {
       //screens[currentTab],
 //CODE FOR FLOATING ACTION BUTTON
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add,color: Colors.green,),
-        
+        child: Icon(Icons.add,color: Colors.blueAccent,),
+        backgroundColor: Colors.black,
         onPressed: () {
               Navigator.push(
                 context,
@@ -133,14 +263,13 @@ void _onItemTapped(int index) {
         //FOR APP DRAWER
         drawer: AppDrawer(),
        // bottomNavigationBar: MyBottomNavigationBar(),
-         body: 
-         
-         
-         
+         body:   
          SafeArea(
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[   
+           
+        // child: Stack(
+        //   fit: StackFit.expand,
+          
+        //   children: <Widget>[   
           //       PageStorage(
           //   child: currentScreen,
           //   bucket: bucket,
@@ -148,7 +277,7 @@ void _onItemTapped(int index) {
         //  Center(
         //         child: screens.elementAt(currentTab),
         //         ),
-         SingleChildScrollView(
+        child: SingleChildScrollView(
           
           child:Column(
             children:<Widget>[
@@ -309,136 +438,136 @@ void _onItemTapped(int index) {
           // Center(
           //       child: screens[currentTab]
           //       ),
-          ],
-        ),
-         ),
+         // ],
+       // ),
+       //  ),
   
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 10,
-        child: Container(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            Home(); // if user taps on this dashboard tab will be active
-                        currentTab = 0;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.home,
-                          color: currentTab == 0 ? Colors.green : Colors.black,
-                        ),
-                        Text(
-                          'Home',
-                          style: TextStyle(
-                            color: currentTab == 0 ? Colors.green : Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            BookStatus(); // if user taps on this dashboard tab will be active
-                        currentTab = 1;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.library_books,
-                          color: currentTab == 1 ? Colors.green : Colors.black,
-                        ),
-                        Text(
-                          'Your Books',
-                          style: TextStyle(
-                            color: currentTab == 1 ? Colors.green : Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+      // bottomNavigationBar: BottomAppBar(
+      //   shape: CircularNotchedRectangle(),
+      //   notchMargin: 10,
+      //   child: Container(
+      //     height: 60,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: <Widget>[
+      //         Row(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           children: <Widget>[
+      //             MaterialButton(
+      //               minWidth: 40,
+      //               onPressed: () {
+      //                 setState(() {
+      //                   currentScreen =
+      //                       Home(); // if user taps on this dashboard tab will be active
+      //                   currentTab = 0;
+      //                 });
+      //               },
+      //               child: Column(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: <Widget>[
+      //                   Icon(
+      //                     Icons.home,
+      //                     color: currentTab == 0 ? Colors.green : Colors.black,
+      //                   ),
+      //                   Text(
+      //                     'Home',
+      //                     style: TextStyle(
+      //                       color: currentTab == 0 ? Colors.green : Colors.black,
+      //                     ),
+      //                   ),
+      //                 ],
+      //               ),
+      //             ),
+      //             MaterialButton(
+      //               minWidth: 40,
+      //               onPressed: () {
+      //                 setState(() {
+      //                   currentScreen =
+      //                       BookStatus(); // if user taps on this dashboard tab will be active
+      //                   currentTab = 1;
+      //                 });
+      //               },
+      //               child: Column(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: <Widget>[
+      //                   Icon(
+      //                     Icons.library_books,
+      //                     color: currentTab == 1 ? Colors.green : Colors.black,
+      //                   ),
+      //                   Text(
+      //                     'Your Books',
+      //                     style: TextStyle(
+      //                       color: currentTab == 1 ? Colors.green : Colors.black,
+      //                     ),
+      //                   ),
+      //                 ],
+      //               ),
+      //             )
+      //           ],
+      //         ),
 
-              // Right Tab bar icons
+      //         // Right Tab bar icons
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            Notifications(); // if user taps on this dashboard tab will be active
-                        currentTab = 2;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.notifications,
-                          color: currentTab == 2 ? Colors.green : Colors.black,
-                        ),
-                        Text(
-                          'Notifications',
-                          style: TextStyle(
-                            color: currentTab == 2 ? Colors.green : Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            UserProfile(); // if user taps on this dashboard tab will be active
-                        currentTab = 3;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.person_outline,
-                          color: currentTab == 3 ? Colors.green : Colors.black,
-                        ),
-                        Text(
-                          'Profile',
-                          style: TextStyle(
-                            color: currentTab == 3 ? Colors.green : Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              )
+      //         Row(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           children: <Widget>[
+      //             MaterialButton(
+      //               minWidth: 40,
+      //               onPressed: () {
+      //                 setState(() {
+      //                   currentScreen =
+      //                       Notifications(); // if user taps on this dashboard tab will be active
+      //                   currentTab = 2;
+      //                 });
+      //               },
+      //               child: Column(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: <Widget>[
+      //                   Icon(
+      //                     Icons.notifications,
+      //                     color: currentTab == 2 ? Colors.green : Colors.black,
+      //                   ),
+      //                   Text(
+      //                     'Notifications',
+      //                     style: TextStyle(
+      //                       color: currentTab == 2 ? Colors.green : Colors.black,
+      //                     ),
+      //                   ),
+      //                 ],
+      //               ),
+      //             ),
+      //             MaterialButton(
+      //               minWidth: 40,
+      //               onPressed: () {
+      //                 setState(() {
+      //                   currentScreen =
+      //                       UserProfile(); // if user taps on this dashboard tab will be active
+      //                   currentTab = 3;
+      //                 });
+      //               },
+      //               child: Column(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: <Widget>[
+      //                   Icon(
+      //                     Icons.person_outline,
+      //                     color: currentTab == 3 ? Colors.green : Colors.black,
+      //                   ),
+      //                   Text(
+      //                     'Profile',
+      //                     style: TextStyle(
+      //                       color: currentTab == 3 ? Colors.green : Colors.black,
+      //                     ),
+      //                   ),
+      //                 ],
+      //               ),
+      //             )
+      //           ],
+      //         )
 
-            ],
-          ),
-        ),
-      ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
 
 
@@ -493,7 +622,9 @@ void _onItemTapped(int index) {
 //       onTap: _onItemTapped,
 //     ),   //  body: _setDrawerItemWidget(_selectedIndex)
 //    ), 
+    )
     );
+    
     }
     
     
