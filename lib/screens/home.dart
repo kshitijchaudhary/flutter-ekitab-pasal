@@ -7,7 +7,9 @@ import 'package:ekitaab_pasal/network_utils/api.dart';
 import 'package:ekitaab_pasal/screens/book_status.dart';
 import 'package:ekitaab_pasal/screens/cart.dart';
 import 'package:ekitaab_pasal/screens/profile.dart';
+import 'package:ekitaab_pasal/services/slider_service.dart';
 import 'package:ekitaab_pasal/widgets/appdrawer.dart';
+import 'package:ekitaab_pasal/widgets/carosuel_slider.dart';
 
 import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
@@ -44,6 +46,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home>{
  // List<String> categories = ["All","Recommended","Popular books","My books"];
     //List<Widget> bookShimmer = List();
+    SliderService _sliderService=SliderService();
+    var items=[];
     ScrollController _scrollController = ScrollController();
     int currentPage = 1;
     bool isCatLoading = true;
@@ -69,11 +73,10 @@ class _HomeState extends State<Home>{
    // _loadUserData();
    //checkCart();
     super.initState();
+    _getAllSliders();
   }
   int currentTab = 0; 
- //static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
-
+   
   final List<Widget> screens =
  [
    Home(),
@@ -92,6 +95,18 @@ void _onItemTapped(int index) {
      currentTab = index;
    });
  }
+  _getAllSliders() async{
+      var sliders = await _sliderService.getSliders();
+      var result= json.decode(sliders.body);
+      result['data'].forEach((data){
+        setState(() {
+          items.add(NetworkImage(data['image_url']));
+        });
+
+      }
+      );
+      print(result);
+    }
 //  Widget childWidget = ChildWidget(
     
 //   );
@@ -265,7 +280,13 @@ void _onItemTapped(int index) {
        // bottomNavigationBar: MyBottomNavigationBar(),
          body:   
          SafeArea(
-           
+          //  child: Stack(
+          //  fit: StackFit.expand,
+          
+          // children: <Widget>[   
+          //      Container(
+          //    ),
+          // ] 
         // child: Stack(
         //   fit: StackFit.expand,
           
@@ -277,14 +298,14 @@ void _onItemTapped(int index) {
         //  Center(
         //         child: screens.elementAt(currentTab),
         //         ),
-        child: 
+        
         //Container(
-
+          child:
           SingleChildScrollView(
           
           child:Column(
             children:<Widget>[
-              FadeAnimation(1, Container(
+            FadeAnimation(1, Container(
                 height:300,
                 width: double.infinity,
                 padding: EdgeInsets.only(left:25,right:25,top:60),
@@ -383,7 +404,7 @@ void _onItemTapped(int index) {
                 //    ),                  
                 //  ),
                    Padding(
-                        padding: const EdgeInsets.fromLTRB(150.0, 0, 8.0, 8.0),
+                        padding: const EdgeInsets.fromLTRB(100.0, 0, 5.0, 8.0),
                           child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -416,17 +437,17 @@ void _onItemTapped(int index) {
                ),
              
             ), 
-           
-            Padding(
+          //  Container(
+          //   child: ListView(children: <Widget>[
+          //       carouselSlider(items)
+          //   ],
+          //   ),),
+
+             Padding(
             padding: EdgeInsets.all(8.0),
               child: Row(crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('LIST OF CATEGORIES',style: TextStyle(
-                   fontWeight: FontWeight.bold,
-                   fontSize: 20,
-                   color:Color.fromRGBO(97, 90, 90, 1)
-                 ),
-                ),
+               Text('CATEGROY')
               ],)
 
 
@@ -438,6 +459,7 @@ void _onItemTapped(int index) {
         
           
           ),
+        
        // ),
           // Center(
           //       child: screens[currentTab]
@@ -625,8 +647,10 @@ void _onItemTapped(int index) {
 //       selectedItemColor: Colors.greenAccent[800],
 //       onTap: _onItemTapped,
 //     ),   //  body: _setDrawerItemWidget(_selectedIndex)
-//    ), 
-    )
+//    ),
+           
+    
+         ),
     );
     
     }

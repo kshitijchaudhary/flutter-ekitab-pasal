@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'E-Kitab Pasal',
-       debugShowCheckedModeBanner: true,
+       debugShowCheckedModeBanner: false,
        home:CheckAuth(),
 
       theme: ThemeData(
@@ -61,7 +61,7 @@ class CheckAuth extends StatefulWidget {
 }
 
 class _CheckAuthState extends State<CheckAuth> {
-  bool isAuth = true;
+  bool isAuth = false;
   @override
   void initState() {
     _checkIfLoggedIn();
