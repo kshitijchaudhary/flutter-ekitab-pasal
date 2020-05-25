@@ -89,44 +89,6 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           new Divider(
               color: Colors.greenAccent,
-              height: 2.0,
-            ),
-          buildList(
-            'Notifications',
-            Icons.notifications,
-            () {
-              Navigator.pop(context);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return Notifications();
-                  },
-                ),
-              );
-            },
-          ),
-          new Divider(
-              color: Colors.greenAccent,
-              height: 2.0,
-            ),
-          buildList(
-            'Profile',
-            Icons.person,
-            () {
-              Navigator.pop(context);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return UserProfile();
-                    
-                  },
-                  
-                ),
-              );
-            },
-          ),
-          new Divider(
-              color: Colors.greenAccent,
               height: 3.0,
             ),
           buildList(
@@ -174,24 +136,6 @@ class _AppDrawerState extends State<AppDrawer> {
                 MaterialPageRoute(
                   builder: (_) {
                     return AboutPage();
-                  },
-                ),
-              );
-            },
-          ),
-           new Divider(
-              color: Colors.greenAccent,
-              height: 2.0,
-            ),
-          buildList(
-            'Settings',
-            Icons.settings,
-            () {
-              Navigator.pop(context);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return SettingsPage();
                   },
                 ),
               );

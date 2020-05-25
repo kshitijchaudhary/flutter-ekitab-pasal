@@ -1,3 +1,4 @@
+import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -13,7 +14,7 @@ class _CartState extends State<Cart> {
         title: new Text("Your Cart"),
         backgroundColor: Colors.green,
       ),
-      
+      drawer: AppDrawer(),
       body: new Center(
         child: new Text("You have nothing to display in cart page "),
       ),

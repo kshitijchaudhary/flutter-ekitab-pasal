@@ -1,3 +1,4 @@
+import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 
@@ -12,12 +13,9 @@ class _BookStatusState extends State<BookStatus> {
     return Scaffold(
       appBar: new AppBar(
         title: new Text("Your Books"),
-        actions: <Widget>[
-          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: null),
-          
-        ],
         backgroundColor: Colors.green,
       ),
+      drawer: AppDrawer(),
       body: new Center(
         child: new Text("You have no books yet "),
       ),

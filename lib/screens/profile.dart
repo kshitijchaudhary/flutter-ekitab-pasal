@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:ekitaab_pasal/models/bottom_navigation.dart';
+import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mdi/mdi.dart';
@@ -73,26 +74,17 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('User Profile'),
-        actions: <Widget>[
-          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed:  () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Cart()),
-              );
-          }),
-        ],
         elevation: defaultTargetPlatform== TargetPlatform.android?5.0:0.0,
         backgroundColor: Colors.green,
        
       ),
-    
+    drawer: AppDrawer(),
     body:new GestureDetector(
         onTap: () {
         // call this method here to hide soft keyboard
         FocusScope.of(context).requestFocus(new FocusNode());
         },
-        child: Container(
-       
+        child: Container( 
         child: new ListView( 
         children: <Widget>[
           new Container(

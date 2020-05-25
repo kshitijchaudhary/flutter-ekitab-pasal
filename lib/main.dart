@@ -73,7 +73,7 @@ class _CheckAuthState extends State<CheckAuth> {
     var token = localStorage.getString('token');
     if(token != null){
       setState(() {
-        isAuth = true;
+        isAuth = false;
       }); 
     }
   }
