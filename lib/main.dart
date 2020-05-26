@@ -1,10 +1,7 @@
 import 'package:ekitaab_pasal/login/login.dart';
-import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:ekitaab_pasal/register/register.dart';
 import 'package:flutter/material.dart';
 
  void main() => runApp(MyApp());
@@ -61,7 +58,7 @@ class CheckAuth extends StatefulWidget {
 }
 
 class _CheckAuthState extends State<CheckAuth> {
-  bool isAuth = false;
+  bool isAuth = true;
   @override
   void initState() {
     _checkIfLoggedIn();
@@ -73,7 +70,7 @@ class _CheckAuthState extends State<CheckAuth> {
     var token = localStorage.getString('token');
     if(token != null){
       setState(() {
-        isAuth = false;
+        isAuth = true;
       }); 
     }
   }

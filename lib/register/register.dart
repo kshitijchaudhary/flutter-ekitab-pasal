@@ -13,7 +13,7 @@ class FirstRegister extends StatefulWidget{
 }
 
 class FirstRegisterState extends State<FirstRegister>{
-bool _isLoading = false;
+  bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
   var name;
   var email;
@@ -29,56 +29,6 @@ Widget build(BuildContext context){
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-    // Container(
-    //   margin: EdgeInsets.only(left: 80, top: 48),
-    //         height: 50,
-    //     color: Colors.teal,
-    //     child: Stack(
-    //       children: <Widget>[
-    //          Padding(
-    //             padding: EdgeInsets.all(10.0),
-    //             child: Image.asset("assets/logo.png", 
-    //              width: 100,
-    //              height: 80,
-    //             fit:BoxFit.fill
-    //             ),
-                
-    //           ),
-    //             ],
-    //         ),
-    // ),
-    //  SizedBox(height: 48),
-    //  Container(
-    //         margin: EdgeInsets.only(left: 32),
-    //         child: Column(
-    //           children: <Widget>[
-    //           //  mainAxisAlignment:MainAxisAlignment.center
-    //             Center(
-    //              child:Text(
-    //               'Register',
-    //               textAlign: TextAlign.center,
-    //               style: TextStyle(
-    //                 fontSize: 32,
-                    
-    //                 fontWeight: FontWeight.w500,
-    //                 color: Colors.white,
-    //                 //color: Theme.of(context).textTheme.title.color,
-    //               ),
-    //             )            
-    //             ),
-
-               
-    //           ],
-    //         ),
-    //       ),
-    //       SizedBox(height: 8),
-      
-    // // appBar: AppBar(
-    // //   title: Text('Register' ),
-    // //   centerTitle: true,
-    // //   backgroundColor: Colors.deepOrange,
-      
-    // // ), children: <Widget>[
           SizedBox(height: 8),
            Container(
             //margin: EdgeInsets.only(left: 40, top: 30),
@@ -93,22 +43,10 @@ Widget build(BuildContext context){
                  height: 150,
                 //fit:BoxFit.fill
                 ),
-                
               ),
-
-               // GestureDetector(
-                   //child: Image.asset(
-                     //'lib/assets/logo.jpg',
-                     //fit: BoxFit.fill,
-                   //),
-                 // onTap: widget.onTapLogo,
-                //),
               ],
            ),
-          ),
-      
-      
-      
+          ),  
       Container(
       child: Stack(
             children: <Widget>[

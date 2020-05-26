@@ -1,10 +1,8 @@
 import 'dart:convert';
-import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mdi/mdi.dart';
-import 'package:ekitaab_pasal/models/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
 import 'package:ekitaab_pasal/network_utils/api.dart';
@@ -31,22 +29,12 @@ class UserProfile extends StatefulWidget {
     
   ];
 
-  /*final bottomNavItems = [
-    new bottomNavItems("Home", Icons.home),
-    new bottomNavItems("Books", Icons.library_books),
-    new bottomNavItems("Cart", Icons.shopping_basket),
-    new bottomNavItems("Transactions", Icons.monetization_on),
-    new bottomNavItems("User Profile", Icons.person),
-  ];*/
-
- 
   @override
   _UserProfileState createState() => _UserProfileState();
 }
 
 class _UserProfileState extends State<UserProfile>{
  // List<String> categories = ["All","Recommended","Popular books","My books"];
-  int _selectedIndex = 0;
   @override
   void initState(){
    // _loadUserData();
@@ -126,93 +114,7 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
                            ),
                               ),
                            ],
-
-                           
                           ),
-
-                          // Container(
-                          //   padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                          //   child: 
-                          //   // Text("Your Name",
-                          //   // style: TextStyle(
-                          //   //   color: Colors.black,
-                          //   //   fontWeight: FontWeight.bold,
-                          //   //   fontSize: 12,
-                          //   //   ),
-                          //   // ),
-                            
-                            
-                          //   TextField(
-                          //    keyboardType: TextInputType.text,
-                          //     autofocus: false,
-                          //     decoration: InputDecoration(
-                          //       icon: Icon(Icons.person),
-                          //      labelText: "YOUR NAME", 
-                          //     prefixText:"KSHITIJ CHAUDHARY",
-                          //     ),
-                          //   ),
-                          // ),
-                          // Container(
-                          //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                          //   child: TextField(
-                          //     keyboardType: TextInputType.number,
-                          //     autofocus: false,
-                          //     decoration: InputDecoration(
-                          //       icon: Icon(Icons.phonelink_ring),
-                          //       labelText: "Your Phone Number",
-                          //       prefixText: "+977XXXXXXXXXX",
-                          //     ),
-                          //   ),
-                          // ),
-                          // Container(
-                          //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                          //   child: TextField(
-                          //     keyboardType: TextInputType.text,
-                          //     autofocus: false,
-                          //     decoration: InputDecoration(
-                          //       icon: Icon(Icons.email),
-                          //       labelText: "yourname@example.com",
-                          //     ),
-                          //   ),
-                          // ),
-                          // Container(
-                          //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                          //   child: TextField(
-                          //     keyboardType: TextInputType.text,
-                          //     autofocus: false,
-                          //     decoration: InputDecoration(
-                          //       icon: Icon(Mdi.mapMarker),
-                          //       labelText: "123 Street Kathmandu NP",
-                          //     ),
-                          //   ),
-                          // ),
-                          // Container(
-                          //   padding: EdgeInsets.only(top:30),
-                          //   child: Center(
-                          //     child: ButtonTheme(
-                          //       minWidth: 90.0,
-                          //       height: 40.0,
-                          //       child: RaisedButton(
-                          //       shape: RoundedRectangleBorder(
-                          //         borderRadius: new BorderRadius.circular(30.0),
-                          //       ),
-                          //       color: Colors.green,
-                          //         onPressed: () {},
-                          //         child: const Text(
-                          //           'Update',
-                          //           style: TextStyle(
-                          //             fontSize: 20,
-                          //             fontFamily: "Open-Sans",
-                          //             color: Colors.white
-                          //             ),
-                                    
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ),
-                            
-                          // ),
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
@@ -368,45 +270,11 @@ static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWei
     }
   }*/
 
-  _onSelectItem(int index) {
-    setState(() => _selectedIndex = index);
-    Navigator.of(context).pop(); //
-  }
+
 
 
 }
-        // return Scaffold(
-        //   appBar: AppBar(
-        //     title: Text('E Kitab Pasal'),
-        //     backgroundColor: Colors.teal,
-        //   ),
-        //   body: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //         children: <Widget>[
-        //           Text('Hi, $name',
-        //           style: TextStyle(
-        //             fontWeight: FontWeight.bold
-        //             ),
-        //           ),
-        //           Center(
-        //             child: RaisedButton(
-        //               elevation: 10,
-        //               onPressed: (){
-        //                // logout();
-        //               },
-        //               color: Colors.teal,
-        //               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-        //               child: Text('Logout'),
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //   ),
-        // );
-     // }
-
+      
  /* void logout() async{
     var res = await Network().getData('/logout');
     var body = json.decode(res.body);

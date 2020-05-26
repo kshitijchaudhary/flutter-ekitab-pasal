@@ -2,7 +2,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 Widget carouselSlider(items) => SizedBox(
-  height: 200,
+  height: 150,
   child: Carousel(
     boxFit: BoxFit.cover,
     images: items,

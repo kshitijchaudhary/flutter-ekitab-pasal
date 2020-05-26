@@ -1,5 +1,4 @@
 import 'package:ekitaab_pasal/models/book.dart';
-import 'package:ekitaab_pasal/models/notifiers/book_notifier.dart';
 import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 import 'package:ekitaab_pasal/widgets/buttons/confirm_button.dart';
 import 'package:ekitaab_pasal/widgets/input/book_form.dart';
@@ -18,6 +17,16 @@ class AddBookForm extends StatefulWidget {
 }
 
 class _AddBookFormState extends State<AddBookForm> {
+  final _formKey = GlobalKey<FormState>();
+  var bookName;
+  var rentPrice;
+  var authorName;
+  var bookDescription;
+  var bookCategory;
+  var bookPhoto;
+
+
+
   
 
   @override
