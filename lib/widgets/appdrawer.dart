@@ -3,9 +3,6 @@ import 'package:ekitaab_pasal/screens/about.dart';
 import 'package:ekitaab_pasal/screens/contactus.dart';
 import 'package:ekitaab_pasal/screens/faq.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
-import 'package:ekitaab_pasal/screens/notifications.dart';
-import 'package:ekitaab_pasal/screens/profile.dart';
-import 'package:ekitaab_pasal/screens/settings.dart';
 import 'package:flutter/material.dart';
 
 

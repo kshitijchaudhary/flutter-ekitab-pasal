@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:ekitaab_pasal/screens/addBooks/addBook.dart';
-import 'package:ekitaab_pasal/screens/book_details.dart';
+import 'package:ekitaab_pasal/screens/book_detail.dart';
 import 'package:ekitaab_pasal/animations/fade_animation.dart';
 import 'package:ekitaab_pasal/login/login.dart';
 import 'package:ekitaab_pasal/network_utils/api.dart';

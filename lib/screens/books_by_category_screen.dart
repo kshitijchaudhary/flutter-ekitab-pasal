@@ -29,7 +29,7 @@ class _BooksByCategoryScreenState extends State<BooksByCategoryScreen> {
       model.authorName=data['authorName'];
       model.rentPrice=data['rentPrice'];
       model.photo=data['bookPhoto'];
-      model.description=data['bookDescription'];
+      model.bookDescription=data['description'];
 
       setState(() {
         _bookListByCategory.add(model);
