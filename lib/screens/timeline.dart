@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:ekitaab_pasal/models/book.dart';
 import 'package:ekitaab_pasal/models/category.dart';
 import 'package:ekitaab_pasal/screens/cart.dart';
 import 'package:ekitaab_pasal/services/catgeory_service.dart';
@@ -6,6 +7,8 @@ import 'package:ekitaab_pasal/services/slider_service.dart';
 import 'package:ekitaab_pasal/widgets/appdrawer.dart';
 import 'package:ekitaab_pasal/widgets/carosuel_slider.dart';
 import 'package:ekitaab_pasal/widgets/timeline_browse_catgeories.dart';
+import 'package:ekitaab_pasal/widgets/timeline_browse_books.dart';
+import 'package:ekitaab_pasal/services/book_service.dart';
 import 'package:flutter/material.dart';
 
 class Timeline extends StatefulWidget {
@@ -17,9 +20,11 @@ class Timeline extends StatefulWidget {
 class _TimelineState extends State<Timeline> {
   SliderService _sliderService=SliderService();
   CategoryService _categoryService=CategoryService();
+  BookService _bookService=BookService();
 
 //declaring instance of catgeory list
   List<Category> _categoryList = List<Category>();
+  List<Book> _bookList = List<Book>();
 
     var items=[];
    // ScrollController _scrollController = ScrollController();
@@ -42,6 +47,7 @@ class _TimelineState extends State<Timeline> {
       super.initState();
       _getAllSliders();
       _getAllCategories();
+      _getAllBooks();
     }
   _getAllSliders() async {
     var sliders = await _sliderService.getSliders();
@@ -69,6 +75,24 @@ class _TimelineState extends State<Timeline> {
     print(result);
   }
 
+  _getAllBooks() async{
+    var books = await _bookService.getBooks();
+    var result=json.decode(books.body);
+    result['data'].forEach((data){
+      var model=Book();
+      model.id=data['id'];
+      model.name=data['bookName'];
+      model.authorName=data['authorName'];
+      model.rentPrice=data['rentPrice'];
+      model.photo=data['bookPhoto'];
+      model.description=data['bookDescription'];
+
+      setState(() {
+        _bookList.add(model);
+      });
+    });
+  }
+
 Scaffold buildHomeScreen(){
   return Scaffold(
     appBar: AppBar(
@@ -94,6 +118,11 @@ Scaffold buildHomeScreen(){
             child: Text('Browse Categories', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black),),
           ),
          TimelineBrowseCategories(categoryList: _categoryList,),
+         Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text('Available Books', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black),),
+          ),
+        TimelineBrowseBooks(bookList: _bookList,),
       ],
     ),
     
