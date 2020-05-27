@@ -19,7 +19,7 @@ class _TimelineBrowseCategoriesState extends State<TimelineBrowseCategories> {
         scrollDirection: Axis.horizontal,
         itemCount: this.widget.categoryList.length,
         itemBuilder: (context, index){
-          return TimelineBrowseCategory(this.widget.categoryList[index].icon, this.widget.categoryList[index].name);
+          return TimelineBrowseCategory(this.widget.categoryList[index].icon, this.widget.categoryList[index].name, this.widget.categoryList[index].id);
         },
       ),
       

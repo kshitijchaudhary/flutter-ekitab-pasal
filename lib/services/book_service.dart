@@ -9,4 +9,8 @@ class BookService {
   getBooks() async {
     return await _repository.httpGet('books');
   }
+
+  getBooksByCategoryId(categoryId) async{
+    return await _repository.httpGetById("get-books-by-category", categoryId);
+  }
 }

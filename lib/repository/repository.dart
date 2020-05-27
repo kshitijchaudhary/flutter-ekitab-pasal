@@ -4,4 +4,8 @@ class Repository{
     httpGet(String api) async{
       return await http.get(_baseUrl + "/" + api);
     }
+
+  httpGetById(String api, categoryId) async {
+    return await http.get(_baseUrl + "/" + api + "/" + categoryId.toString());
+  }
 }

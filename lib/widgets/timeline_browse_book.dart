@@ -27,7 +27,8 @@ class _TimelineBrowseBookState extends State<TimelineBrowseBook> {
             Image.network(widget.bookPhoto, width:190,height:160),
             Column(children: <Widget>[
               //Text('${this.widget.bookName}'),
-              Text('Rent/Month: रू ${this.widget.rentPrice}'),   
+              Text('Rent/Month: रू ${this.widget.rentPrice}'),
+   
               Text('Author: ${this.widget.authorName}'),
             ],),
       ],
