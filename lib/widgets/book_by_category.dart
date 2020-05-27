@@ -13,28 +13,18 @@ class _BookByCategoryState extends State<BookByCategory> {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-          child: SizedBox(
-            height: 300.0,
+      width: 190,
       child: Card(
         child: Column(
           children: <Widget>[
             Text(this.widget.book.name),
-            Image.network(widget.book.photo,width:190,height:160,),
+            Image.network(widget.book.photo,width:190,height:140,),
             Column(children: <Widget>[
               Text  ('Rent per month:${this.widget.book.rentPrice}'),
               Text('Author: ${this.widget.book.authorName}'),
             ],) 
 
-      ],
-      ),
-      ),
-          ),
-          ),
-        ],
-      ),
+      ],),),
       
     );
   }
