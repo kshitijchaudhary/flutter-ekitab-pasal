@@ -6,10 +6,10 @@ class TimelineBrowseBook extends StatefulWidget {
   final String bookPhoto;
   final int rentPrice;
   final String authorName;
-  final String description;
+  final String bookDescription;
 
   
-  TimelineBrowseBook(this.bookName, this.bookPhoto,this.rentPrice,this.authorName,this.description);
+  TimelineBrowseBook(this.bookName, this.bookPhoto,this.rentPrice,this.authorName,this.bookDescription);
   @override
   _TimelineBrowseBookState createState() => _TimelineBrowseBookState();
 }
@@ -24,7 +24,7 @@ class _TimelineBrowseBookState extends State<TimelineBrowseBook> {
       height: 240,
       child: InkWell(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> BookDetail(this.widget.bookName,this.widget.bookPhoto,this.widget.rentPrice,this.widget.authorName,this.widget.description)));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> BookDetail(this.widget.bookName,this.widget.bookPhoto,this.widget.rentPrice,this.widget.authorName,this.widget.bookDescription)));
         },
               child: Card(
          child: Column(

@@ -24,10 +24,10 @@ class _BookDetailState extends State<BookDetail> {
       ListView(
         children: <Widget>[
           Container(
-            height: 300,
+            height: 350,
             child: GridTile(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 40.0),
+                padding: const EdgeInsets.only(bottom: 50.0),
               child: Container(
                 child: Image.network(this.widget.bookPhoto),
               ),
@@ -37,12 +37,11 @@ class _BookDetailState extends State<BookDetail> {
               
                child:Container(
                  child: ListTile(
-                   leading: Text(this.widget.bookName),
-                  title: Column(
+                   leading: Text(this.widget.bookName, style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                  title: Row(
                     children: <Widget>[
-                       Text('Rent/Month: ${this.widget.rentPrice}'),
-                      Text('Author:${this.widget.authorName}'),
-              //         //Text('$this.widget.description}'),
+                       Text('Rent/Month: ${this.widget.rentPrice}',style: TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                       //Text('$this.widget.description}'),
                    ],
                    ),
                 ),
@@ -50,6 +49,14 @@ class _BookDetailState extends State<BookDetail> {
                ),
             ),
           ),
+          Row(
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Text('Author:${this.widget.authorName}',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                      
+            ],
+          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -66,15 +73,15 @@ class _BookDetailState extends State<BookDetail> {
               ],
               ),
               ),
-               Divider(),
-              // ListTile(
-              //   title: Text('Book Detail'),
-              //    subtitle:Text('Author:${this.widget.authorName}'),
-              // //   subtitle: Text('${this.widget.bookDescription}'),
-              //  )
+              
             ],
           ),
-         
+           Divider(),
+              ListTile(
+                title: Text('Book Detail',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                 subtitle:Text('${this.widget.bookDescription}'),
+              //   subtitle: Text('${this.widget.bookDescription}'),
+               ),       
         ],),  
     );
   }
