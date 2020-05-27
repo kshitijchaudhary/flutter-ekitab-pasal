@@ -24,7 +24,7 @@ class _BooksByCategoryScreenState extends State<BooksByCategoryScreen> {
     var _list= json.decode(books.body);
     _list['data'].forEach((data){
       var model=Book();
-      model.id=data['id'];
+      model.id=data['id'];  
       model.name=data['bookName'];
       model.authorName=data['authorName'];
       model.rentPrice=data['rentPrice'];
@@ -36,11 +36,12 @@ class _BooksByCategoryScreenState extends State<BooksByCategoryScreen> {
       });
     });
 
+    
+    }
     @override
     void initState() { 
       super.initState();
       _getBookByCategory();
-    }
 
   }
 

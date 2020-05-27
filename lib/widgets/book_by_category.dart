@@ -12,8 +12,12 @@ class _BookByCategoryState extends State<BookByCategory> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 260,
-      width: 190,
+      height: 300,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+          child: SizedBox(
+            height: 300.0,
       child: Card(
         child: Column(
           children: <Widget>[
@@ -24,7 +28,13 @@ class _BookByCategoryState extends State<BookByCategory> {
               Text('Author: ${this.widget.book.authorName}'),
             ],) 
 
-      ],),),
+      ],
+      ),
+      ),
+          ),
+          ),
+        ],
+      ),
       
     );
   }
