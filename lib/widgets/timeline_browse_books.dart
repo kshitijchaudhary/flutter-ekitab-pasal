@@ -25,7 +25,7 @@ class _TimelineBrowseBooksState extends State<TimelineBrowseBooks> {
         shrinkWrap: true,
         itemCount: this.widget.bookList.length,
         itemBuilder: (context, index){
-          return TimelineBrowseBook(this.widget.bookList[index].name,this.widget.bookList[index].photo,this.widget.bookList[index].rentPrice,this.widget.bookList[index].authorName,this.widget.bookList[index].bookDescription,);
+          return TimelineBrowseBook(this.widget.bookList[index]);
         },
       ),
         

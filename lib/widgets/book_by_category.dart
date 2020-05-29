@@ -16,8 +16,9 @@ class _BookByCategoryState extends State<BookByCategory> {
       height: 300,
       width: 190,
       child: InkWell(
-        onTap: (){
-          // Navigator.push(context, MaterialPageRoute(builder: (context)=> BookDetail(this.widget.book.name,this.widget.book.photo,this.widget.book.rentPrice,this.widget.book.authorName,this.widget.book.bookDescription)));
+        onTap: ()
+        {
+           Navigator.push(context, MaterialPageRoute(builder: (context)=> BookDetail(this.widget.book)));
         },
               child: Card(
           child: Column(

@@ -1,9 +1,14 @@
 import 'dart:convert';
 
 import 'package:ekitaab_pasal/login/login.dart';
+import 'package:ekitaab_pasal/models/user.dart';
 //import 'package:ekitaab_pasal/network_utils/api.dart';
-import 'package:ekitaab_pasal/screens/home.dart';
+//import 'package:ekitaab_pasal/network_utils/api.dart';
+//import 'package:ekitaab_pasal/screens/home.dart';
+import 'package:ekitaab_pasal/screens/timeline.dart';
+import 'package:ekitaab_pasal/services/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -13,13 +18,40 @@ class FirstRegister extends StatefulWidget{
 }
 
 class FirstRegisterState extends State<FirstRegister>{
-  bool _isLoading = false;
+ // bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  var name;
-  var email;
-  var phone;
-  var address;
-  var password;
+  final name=TextEditingController();
+  final email=TextEditingController();
+  final phone=TextEditingController();
+  final address=TextEditingController();
+  final password=TextEditingController();
+  // var name;
+  // var email;
+  // var phone;
+  // var address;
+  // var password;
+  // _register(BuildContext context,User user) async{
+  //   var _userService=UserService();
+  //   var registeredUser=await _userService.createUser(user);
+  //   var result =json.decode(registeredUser.body);
+  //   if(result['result']==true){
+  //      SharedPreferences _prefs = await SharedPreferences.getInstance();
+  //      _prefs.setInt('userId', result['user']['id']);
+  //      _prefs.setString('userName', result['user']['name']);
+  //      _prefs.setString('userEmail', result['user']['email']);
+  //      _prefs.setString('userAddress', result['user']['address']);
+  //      _prefs.setString('userPhone', result['user']['phone']);
+  //     Navigator.push(
+  //       context, MaterialPageRoute(builder: (context)=>Timeline()));
+  //        }
+  //       else{
+  //         showSnackBar(Text('Failed to register'));
+
+  //       }
+  // }
+      
+    
+
 @override
 Widget build(BuildContext context){
   return Scaffold(
@@ -107,7 +139,7 @@ Widget build(BuildContext context){
                                   if (nameValue.isEmpty) {
                                     return 'Please enter your name';
                                   }
-                                  name = nameValue;
+                                 // name = nameValue;
                                   return null;
                                 },
                               ),
@@ -133,7 +165,7 @@ Widget build(BuildContext context){
                                   if (emailValue.isEmpty) {
                                     return 'Please enter your first name';
                                   }
-                                  email = emailValue;
+                                  //email = emailValue;
                                   return null;
                                 },
                               ),
@@ -159,7 +191,7 @@ Widget build(BuildContext context){
                                   if (phoneNumber.isEmpty) {
                                     return 'Please enter your Contact Number';
                                   }
-                                  phone = phoneNumber;
+                                //  phone = phoneNumber;
                                   return null;
                                 },
                               ),
@@ -185,7 +217,7 @@ Widget build(BuildContext context){
                                   if (addressValue.isEmpty) {
                                     return 'Please enter your Address';
                                   }
-                                  address = addressValue;
+                                //  address = addressValue;
                                   return null;
                                 },
                               ),
@@ -213,7 +245,7 @@ Widget build(BuildContext context){
                                   if (passwordValue.isEmpty) {
                                     return 'Please enter some text';
                                   }
-                                  password = passwordValue;
+                                //  password = passwordValue;
                                   return null;
                                 },
                               ),
@@ -240,9 +272,16 @@ Widget build(BuildContext context){
                                       borderRadius:
                                       new BorderRadius.circular(20.0)),
                                   onPressed: () {
-                                    if (_formKey.currentState.validate()) {
-                                        _register();
-                                    }
+                                    // if (_formKey.currentState.validate()) {
+                                    //     _register();
+                                    //}
+                                    var user=User();
+                                    user.name=name.text;
+                                    user.email=email.text;
+                                    user.address=address.text;
+                                    user.phone=phone.text;
+                                    user.password=password.text;
+                                    //_register(context, user);
                                   },
                                 ),
                               ),
@@ -292,34 +331,35 @@ Widget build(BuildContext context){
       ),
     );
   }
-  void _register()async{
-    setState(() {
-      _isLoading = true;
-    });
-   /* var data = {
-      'name': name,
-      'email' : email,
-      'password': password,
-      'phone': phone,
-      'address': address
-    };*/
+  // void _register()async{
+  //   setState(() {
+  //     _isLoading = true;
+  //   });
+  //   var data = {
+  //     'name': name,
+  //     'email' : email,
+  //     'password': password,
+  //     'phone': phone,
+  //     'address': address
+  //   };
 
-    /*var res = await Network().authData(data, '/register');
-    var body = json.decode(res.body);
-    if(body['success']){
-      SharedPreferences localStorage = await SharedPreferences.getInstance();
-      localStorage.setString('token', json.encode(body['token']));
-      localStorage.setString('user', json.encode(body['user']));*/
-      Navigator.push(
-        context,
-        new MaterialPageRoute(
-            builder: (context) => Home()
-        ),
-      );
+  //   var res = await Network().authData(data, '/register');
+  //   var body = json.decode(res.body);
+  //   if(body['success']){
+  //     SharedPreferences localStorage = await SharedPreferences.getInstance();
+  //     localStorage.setString('token', json.encode(body['token']));
+  //     localStorage.setString('user', json.encode(body['user']));
+  //     Navigator.push(
+  //       context,
+  //       new MaterialPageRoute(
+  //           builder: (context) => Home()
+  //       ),
+//      );
     }
 
  //   setState(() {
    //   _isLoading = false;
     //});
-  }
+  
+
 //}

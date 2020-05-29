@@ -4,5 +4,5 @@ class Book {
   String authorName;
   int rentPrice;
   String photo;
-  String bookDescription;
+  String detail;
 }

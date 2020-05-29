@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ekitaab_pasal/screens/book_detail.dart';
+import 'package:ekitaab_pasal/models/book.dart';
 
 class TimelineBrowseBook extends StatefulWidget {
-  final String bookName;
-  final String bookPhoto;
-  final int rentPrice;
-  final String authorName;
-  final String bookDescription;
+  final Book book;
 
   
-  TimelineBrowseBook(this.bookName, this.bookPhoto,this.rentPrice,this.authorName,this.bookDescription);
+  TimelineBrowseBook(this.book);
   @override
   _TimelineBrowseBookState createState() => _TimelineBrowseBookState();
 }
@@ -24,17 +21,17 @@ class _TimelineBrowseBookState extends State<TimelineBrowseBook> {
       height: 240,
       child: InkWell(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> BookDetail(this.widget.bookName,this.widget.bookPhoto,this.widget.rentPrice,this.widget.authorName,this.widget.bookDescription)));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> BookDetail(this.widget.book)));
         },
               child: Card(
          child: Column(
             children: <Widget>[
-              Text('${this.widget.bookName}'),
-              Image.network(widget.bookPhoto, width:190,height:160),
+              Text('${this.widget.book.name}'),
+              Image.network(widget.book.photo, width:190,height:160),
               Column(children: <Widget>[
                 //Text('${this.widget.bookName}'),
-                Text('Rent/Month: रू ${this.widget.rentPrice}'),
-                Text('Author: ${this.widget.authorName}'),
+                Text('Rent/Month: रू ${this.widget.book.rentPrice}'),
+                Text('Author: ${this.widget.book.authorName}'),
               ],),
         ],
         ),

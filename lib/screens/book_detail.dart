@@ -1,13 +1,10 @@
+import 'package:ekitaab_pasal/models/book.dart';
 import 'package:flutter/material.dart';
 
 class BookDetail extends StatefulWidget {
-  final String bookName;
-  final String bookPhoto;
-  final int rentPrice;
-  final String authorName;
-  final String bookDescription;
+  final Book book;
 
-  BookDetail(this.bookName,this.bookPhoto,this.rentPrice,this.authorName,this.bookDescription);
+  BookDetail(this.book);
   @override
   _BookDetailState createState() => _BookDetailState();
 }
@@ -17,7 +14,7 @@ class _BookDetailState extends State<BookDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text(this.widget.bookName),
+        title:Text(this.widget.book.name),
         backgroundColor: Colors.green,
       ),
       body:
@@ -29,7 +26,7 @@ class _BookDetailState extends State<BookDetail> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 50.0),
               child: Container(
-                child: Image.network(this.widget.bookPhoto),
+                child: Image.network(this.widget.book.photo),
               ),
               ),
               footer:Padding(
@@ -37,11 +34,11 @@ class _BookDetailState extends State<BookDetail> {
               
                child:Container(
                  child: ListTile(
-                   leading: Text(this.widget.bookName, style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                  title: Row(
+                   leading: Text(this.widget.book.name, style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                  title: Column(
                     children: <Widget>[
-                       Text('Rent/Month: ${this.widget.rentPrice}',style: TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold),),
-                       //Text('$this.widget.description}'),
+                       Text('Rent/Month: ${this.widget.book.rentPrice}',style: TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                      // Text('Detail ${this.widget.book.bookDetail}'),
                    ],
                    ),
                 ),
@@ -52,7 +49,7 @@ class _BookDetailState extends State<BookDetail> {
           Row(
              mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Text('Author:${this.widget.authorName}',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+              Text('Author:${this.widget.book.authorName}',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
                       
             ],
           ),
@@ -79,8 +76,9 @@ class _BookDetailState extends State<BookDetail> {
            Divider(),
               ListTile(
                 title: Text('Book Detail',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                 subtitle:Text('${this.widget.bookDescription}'),
-              //   subtitle: Text('${this.widget.bookDescription}'),
+                 //subtitle:Text('Lorem Ipsum'),
+                 // subtitle: Text('Detail $this.widget.book.detail}'),
+                subtitle: Text(this.widget.book.detail),
                ),       
         ],),  
     );

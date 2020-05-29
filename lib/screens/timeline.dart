@@ -85,7 +85,7 @@ class _TimelineState extends State<Timeline> {
       model.authorName=data['authorName'];
       model.rentPrice=data['rentPrice'];
       model.photo=data['bookPhoto'];
-      model.bookDescription=data['description'];
+      model.detail=data['bookDetail'];
 
       setState(() {
         _bookList.add(model);

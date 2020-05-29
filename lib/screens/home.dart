@@ -24,19 +24,14 @@ import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/cupertino.dart';
-//import 'package:ekitaab_pasal/models/bottom_navigation.dart';
-import 'about.dart';
-import 'contactus.dart';
-import 'faq.dart';
-import 'notifications.dart';
 
 
 
-class DrawerItem {
-  String title;
-  IconData icon;
-  DrawerItem(this.title, this.icon);
-}
+// class DrawerItem {
+//   String title;
+//   IconData icon;
+//   DrawerItem(this.title, this.icon);
+// }
 //String selectedCategorie="All";
 class Home extends StatefulWidget {
  
@@ -47,9 +42,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home>{
     PageController pageController;
     int pageIndex = 0;
-    SliderService _sliderService=SliderService();
+//    SliderService _sliderService=SliderService();
     var items=[];
-    ScrollController _scrollController = ScrollController();
+  //  ScrollController _scrollController = ScrollController();
     int currentPage = 1;
     bool isCatLoading = true;
     bool dataAvailable = false;
@@ -63,19 +58,13 @@ class _HomeState extends State<Home>{
     bool visible = false;
     int totalCartItems=0;
     List cartItems=[];
-    List bannerImage = ['assets/images/group.jfif','assets/images/allbooks.jfif',
-    'assets/images/chair.jfif'];
     bool isHomePageSelected = true;
 
 
-  //int _selectedIndex = 0;
   @override
   void initState(){
-   // _loadUserData();
-   //checkCart();
     super.initState();
     pageController = PageController();
-   // _getAllSliders();
   }
 
   @override
@@ -84,8 +73,6 @@ class _HomeState extends State<Home>{
     super.dispose();
   }
   
-//Active Page Tabs  
-
   onPageChanged(int pageIndex) {
     setState(() {
       this.pageIndex = pageIndex;
@@ -96,22 +83,6 @@ class _HomeState extends State<Home>{
       pageIndex,
     );
   }
-  // _getAllSliders() async{
-  //     var sliders = await _sliderService.getSliders();
-  //     var encodeFirst = json.encode(sliders.body);
-  //     var result= json.decode(encodeFirst);
-  //     result['data'].forEach((data){
-  //       setState(() {
-  //         items.add(NetworkImage(data['image_url']));
-  //       });
-
-  //     }
-  //     );
-  //     print(result);
-  //   }
-//  Widget childWidget = ChildWidget(
-    
-//   );
 Scaffold buildAuthScreen() {
     return Scaffold(
       drawer: AppDrawer(),
