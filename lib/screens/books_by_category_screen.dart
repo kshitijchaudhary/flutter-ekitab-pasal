@@ -56,8 +56,9 @@ class _BooksByCategoryScreenState extends State<BooksByCategoryScreen> {
     ),
     
     body: Container(
+      height: 600,
       child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-      scrollDirection: Axis.vertical,
+     // scrollDirection: Axis.vertical,
         shrinkWrap: true,
        itemCount: _bookListByCategory.length,
        itemBuilder: (context, index){
