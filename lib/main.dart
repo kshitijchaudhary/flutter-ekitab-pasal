@@ -1,5 +1,6 @@
 import 'package:ekitaab_pasal/login/login.dart';
 import 'package:ekitaab_pasal/screens/home.dart';
+import 'package:ekitaab_pasal/screens/splash_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'E-Kitab Pasal',
        debugShowCheckedModeBanner: false,
-       home:CheckAuth(),
+       home:SplashScreen(),
 
       theme: ThemeData(
         // This is the theme of your application.

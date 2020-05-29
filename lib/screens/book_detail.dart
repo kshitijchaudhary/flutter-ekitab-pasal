@@ -34,17 +34,23 @@ class _BookDetailState extends State<BookDetail> {
               
                child:Container(
                  child: ListTile(
-                   leading: Text(this.widget.book.name, style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                  title: Column(
-                    children: <Widget>[
-                       Text('Rent/Month: ${this.widget.book.rentPrice}',style: TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold),),
-                      // Text('Detail ${this.widget.book.bookDetail}'),
-                   ],
-                   ),
+                   leading: Text(this.widget.book.name, style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
+                  // title: Row(
+                  //   children: <Widget>[
+                  //      Text('Rent/Month: ${this.widget.book.rentPrice}',style: TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                  //  ],
+                  //  ),
                 ),
               ),
                ),
             ),
+          ),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Text('Rent/Month: रू ${this.widget.book.rentPrice}',style: TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                      
+            ],
           ),
           Row(
              mainAxisAlignment: MainAxisAlignment.spaceAround,
