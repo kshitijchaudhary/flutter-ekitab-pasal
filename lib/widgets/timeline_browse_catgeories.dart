@@ -14,7 +14,7 @@ class _TimelineBrowseCategoriesState extends State<TimelineBrowseCategories> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 205,
+      height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: this.widget.categoryList.length,

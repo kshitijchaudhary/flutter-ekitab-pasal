@@ -111,7 +111,9 @@ Scaffold buildHomeScreen(){
        
       ), 
     drawer: AppDrawer(),
-    body:   Container(child: ListView(
+    body:   
+    Container(
+      child: ListView(
       children: <Widget>[
         carouselSlider(items),
         Padding(
@@ -119,22 +121,46 @@ Scaffold buildHomeScreen(){
             child: Text('Browse Categories', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black),),
           ),
          TimelineBrowseCategories(categoryList: _categoryList,),
+        
+         Padding(
+            padding: EdgeInsets.all(12.0),
+         
+         ),
+         Padding(
+                padding: const EdgeInsets.fromLTRB(100.0, 8.0, 100.0, 6.0),
+                      child: RaisedButton(
+                      onPressed: (){},
+                      child: Text('View All',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),),
+                                  color: Colors.green,
+                                )
+         ),
+
          Padding(
             padding: EdgeInsets.all(12.0),
             child: Text('Available Books', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black),),
           ),
         TimelineBrowseBooks(bookList: _bookList,),
+         Padding(
+                padding: const EdgeInsets.fromLTRB(100.0, 8.0, 100.0, 6.0),
+                      child: RaisedButton(
+                      onPressed: (){},
+                      child: Text('View All',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),),
+                                  color: Colors.green,
+                                )
+         ),
       ],
     ),
     
     ),
-  );  
+  );
 }
 
   @override
   Widget build(BuildContext context) {
     return buildHomeScreen();
         //RefreshIndicator(
+        //onRefresh: () => getTimeline(), child: buildTimeline()));
+         //RefreshIndicator(
         //onRefresh: () => getTimeline(), child: buildTimeline()));
   }
 }

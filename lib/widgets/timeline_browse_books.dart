@@ -14,7 +14,7 @@ class _TimelineBrowseBooksState extends State<TimelineBrowseBooks> {
   @override 
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 250,
       child: Row(
         children: <Widget>[
           Expanded(

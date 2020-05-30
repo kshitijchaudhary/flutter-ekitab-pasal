@@ -63,10 +63,8 @@ class _BooksByCategoryScreenState extends State<BooksByCategoryScreen> {
        itemCount: _bookListByCategory.length,
        itemBuilder: (context, index){
          return BookByCategory(this._bookListByCategory[index]);
-
        }),  
       ),
-
     );
   }
 }
